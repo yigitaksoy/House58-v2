@@ -1,0 +1,40 @@
+/*  Adobe Fonts */
+@import url("https://use.typekit.net/lgh3lyf.css");
+
+/*  Tailwind  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  Main    */
+
+html {
+  background-color: #100f0f;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*  Footer  */
+
+footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}

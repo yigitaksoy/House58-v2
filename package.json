@@ -1,5 +1,5 @@
 {
-  "name": "house58-v2-nextjs",
+  "name": "house58-v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,16 +8,31 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "keywords": [],
+  "author": "Yigit Aksoy",
+  "license": "ISC",
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.6"
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "gsap": "^3.12.2",
+    "next": "13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "^3",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.6"
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.27",
+    "prettier": "^3.0.1",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.5"
   }
 }
