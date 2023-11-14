@@ -4,8 +4,11 @@
     "plugin:import/errors",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
+    "next",
+    "next/core-web-vitals",
     "prettier"
   ],
+
   "rules": {
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0
@@ -24,6 +27,9 @@
     "node": true
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "alias": {
         "map": [["@", "./src"]],
