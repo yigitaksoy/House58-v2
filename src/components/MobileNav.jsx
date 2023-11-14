@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import Link from "next/link";
@@ -13,8 +13,8 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
-  let el = useRef(null);
-  let q = gsap.utils.selector(el);
+  const el = useRef(null);
+  const q = gsap.utils.selector(el);
   const tl = useRef(null);
   const tl2 = useRef(null);
   const router = useRouter();
@@ -23,9 +23,11 @@ const MobileNav = () => {
     if (router.pathname === "/") {
       event.preventDefault();
 
-      // Check if the scroll position is already at the top
+      if (open) {
+        toggleNav();
+      }
+
       if (window.scrollY !== 0) {
-        // If not at the top, then scroll to the top with animation
         gsap.to(window, {
           duration: 1.6,
           scrollTo: { y: 0, autoKill: false },
@@ -33,7 +35,14 @@ const MobileNav = () => {
         });
       }
     } else {
-      router.push("/");
+      if (open) {
+        toggleNav();
+        setTimeout(() => {
+          router.push("/");
+        }, 500); // Timeout for animation duration
+      } else {
+        router.push("/");
+      }
     }
   };
 
@@ -82,10 +91,25 @@ const MobileNav = () => {
     };
   }, []);
 
-  const toggleNav = () => {
-    tl.current.reversed() ? tl.current.play() : tl.current.reverse();
-    setOpen(!open);
-  };
+  const toggleNav = useCallback(() => {
+    if (tl.current) {
+      tl.current.reversed() ? tl.current.play() : tl.current.reverse();
+    }
+    setOpen((prevOpen) => !prevOpen);
+  }, [tl]);
+
+  useIsomorphicLayoutEffect(() => {
+    // Handling route changes
+    const handleRouteChange = () => {
+      if (open) toggleNav();
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [open, router.events, toggleNav]);
 
   return (
     <div ref={el} className="fixed top-0 left-0 w-full">
