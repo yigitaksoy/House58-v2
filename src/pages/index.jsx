@@ -2,6 +2,7 @@ import Head from "next/head";
 import GridPattern from "@/components/GridPattern";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       />
       <Hero />
       <Services />
+      <TechStack />
     </>
   );
 }
