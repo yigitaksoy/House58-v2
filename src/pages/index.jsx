@@ -22,7 +22,6 @@ export default function Home() {
               "Leading provider of innovative digital solutions, including web design, development, and digital marketing services.",
           })}
         </script>
-        {/* Add other relevant meta tags as needed */}
       </Head>
       <GridPattern
         className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-house-bluelight [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
@@ -31,7 +30,6 @@ export default function Home() {
       />
       <Hero />
       <Services />
-      {/* Rest of your page content */}
     </>
   );
 }
