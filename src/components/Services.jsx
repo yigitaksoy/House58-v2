@@ -47,7 +47,7 @@ const Services = () => {
     };
   }, []);
   return (
-    <div ref={servicesRef} id="services">
+    <section ref={servicesRef} id="services" aria-labelledby="services-heading">
       <div ref={titleRef}>
         <SectionIntro
           eyebrow="Services"
@@ -62,7 +62,7 @@ const Services = () => {
             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
               <StylizedImage
                 src={servicesImg}
-                alt="services-image"
+                alt="Illustrative image of digital services provided by House 58 Digital"
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
@@ -99,7 +99,7 @@ const Services = () => {
           </List>
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 
