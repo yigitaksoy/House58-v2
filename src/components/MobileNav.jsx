@@ -29,9 +29,9 @@ const MobileNav = () => {
 
       if (window.scrollY !== 0) {
         gsap.to(window, {
-          duration: 1.6,
+          duration: 1,
           scrollTo: { y: 0, autoKill: false },
-          ease: "power4.inOut",
+          ease: "expo.inOut",
         });
       }
     } else {
@@ -112,7 +112,7 @@ const MobileNav = () => {
   }, [open, router.events, toggleNav]);
 
   return (
-    <div ref={el} className="fixed top-0 left-0 w-full">
+    <div id="mobile-nav" ref={el} className="fixed top-0 left-0 w-full">
       <div className="nav-bg fixed top-0 left-0 bg-house-black w-full h-screen opacity-0 pointer-events-none"></div>
       <div className="fixed right-0 top-0 w-full md:w-[500px] h-screen pointer-events-none overflow-y-scroll">
         <div

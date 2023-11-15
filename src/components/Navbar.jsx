@@ -89,9 +89,9 @@ const Navbar = () => {
       if (window.scrollY !== 0) {
         // If not at the top, then scroll to the top with animation
         gsap.to(window, {
-          duration: 1.6,
+          duration: 1,
           scrollTo: { y: 0, autoKill: false },
-          ease: "power4.inOut",
+          ease: "expo.inOut",
         });
       }
     } else {
