@@ -9,7 +9,7 @@ import horizontalLoop from "@/helpers/horizontalLoop";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const InfiniteMarquee = ({ texts, className }) => {
+const InfiniteMarquee = ({ texts, className, hollow }) => {
   const marqueesRef = useRef([]);
   let globalIndex = 0;
 
@@ -56,7 +56,7 @@ const InfiniteMarquee = ({ texts, className }) => {
           className={clsx("marquee-container", className)}
         >
           {text.map((word, wordIndex) => {
-            const isHollow = globalIndex % 2 === 0;
+            const isHollow = hollow && globalIndex % 2 === 0;
             globalIndex++; // Increment the global index for the next word
 
             return (
