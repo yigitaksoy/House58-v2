@@ -3,49 +3,26 @@
 import clsx from "clsx";
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import horizontalLoop from "@/helpers/horizontalLoop";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const InfiniteMarquee = ({ texts, className, hollow }) => {
   const marqueesRef = useRef([]);
   let globalIndex = 0;
 
   useIsomorphicLayoutEffect(() => {
-    const timer = setTimeout(() => {
-      const loops = marqueesRef.current.map((marquee, i) => {
-        return horizontalLoop(marquee.querySelectorAll(".word"), {
-          repeat: -1,
-          speed: 1,
-          paddingRight: 16,
-          reversed: i % 2 !== 0,
-        });
-      });
+    if (marqueesRef.current.length === 0) {
+      return;
+    }
 
-      ScrollTrigger.create({
-        trigger: marqueesRef.current[0],
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        onUpdate: (self) => {
-          const scrollFactor = self.direction === 1 ? 1 : -1;
-          loops.forEach((loop, i) => {
-            gsap.to(loop, {
-              timeScale: (i % 3 !== 0 ? -1 : 1) * scrollFactor,
-              overwrite: true,
-            });
-          });
-        },
+    marqueesRef.current.forEach((marquee, i) => {
+      horizontalLoop(marquee.querySelectorAll(".word"), {
+        repeat: -1,
+        speed: 1,
+        paddingRight: 16,
+        reversed: i % 2 !== 0,
       });
-    }, 200);
-
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((st) => st.kill());
-    };
-  }, []);
+    });
+  }, [texts]);
 
   return (
     <>
@@ -54,10 +31,12 @@ const InfiniteMarquee = ({ texts, className, hollow }) => {
           key={marqueeIndex}
           ref={(el) => (marqueesRef.current[marqueeIndex] = el)}
           className={clsx("marquee-container", className)}
+          style={{ position: "relative" }}
         >
+          <div className="marquee-fade start"></div>
           {text.map((word, wordIndex) => {
             const isHollow = hollow && globalIndex % 2 === 0;
-            globalIndex++; // Increment the global index for the next word
+            globalIndex++;
 
             return (
               <div
@@ -68,6 +47,7 @@ const InfiniteMarquee = ({ texts, className, hollow }) => {
               </div>
             );
           })}
+          <div className="marquee-fade end"></div>
         </div>
       ))}
     </>
