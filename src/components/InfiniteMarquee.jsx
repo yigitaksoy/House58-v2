@@ -19,7 +19,7 @@ const InfiniteMarquee = ({ texts, className, hollow }) => {
         repeat: -1,
         speed: 1,
         paddingRight: 16,
-        reversed: i % 2 !== 0,
+        reversed: i % 2 === 0,
       });
     });
   }, [texts]);
