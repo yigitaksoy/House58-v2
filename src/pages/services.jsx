@@ -12,6 +12,7 @@ const texts = [
     "Maintanence",
     "Shopify",
     "Backend",
+    "Branding",
   ],
   [
     "UX/UI Design",
@@ -28,12 +29,12 @@ const services = () => {
     <section id="hero" className="h-screen">
       <Container className="mt-36 sm:mt-32 md:mt-50">
         <div className="max-w-7xl">
-          <h1 className="font-display text-center text-4xl mb-10 font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl">
+          <h1 className="font-display text-center text-4xl mb-14 font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl">
             Services
           </h1>
         </div>
         <InfiniteMarquee
-          className="text-white text-5xl font-heavy md:text-7xl"
+          className="text-white md:text-6xl text-3xl md:py-5 py-3 font-heavy"
           texts={texts}
           hollow
         />
