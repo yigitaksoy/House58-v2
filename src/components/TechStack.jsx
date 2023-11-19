@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import StackIntro from "@/components/StackIntro";
-import GridPattern from "@/components/GridPattern";
 import logoAws from "@/images/logos/aws.svg";
 import logoGcp from "@/images/logos/gcp.svg";
 import logoReact from "@/images/logos/reactjs.svg";
@@ -40,16 +39,10 @@ export default function TechStack({ centered = false }) {
   return (
     <section
       id="tech-stack"
-      className="relative isolate bg-white py-16 sm:py-28 md:py-32"
+      className="relative isolate bg-house-whitewarm py-16 sm:py-28 md:py-32"
     >
-      <GridPattern
-        className="absolute inset-0 -z-10 h-full w-full fill-neutral-100 stroke-neutral-950/5 md:stroke-none [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]"
-        yOffset={-256}
-        interactive
-      />
-
       <FadeIn>
-        <StackIntro title="Our Tech Stack">
+        <StackIntro title="Our Tech Stack" hollow>
           <p>
             We&apos;ll carefully pair the right frameworks and platforms with
             your business objectives.
