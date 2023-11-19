@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -19,6 +19,7 @@ module.exports = {
       colors: {
         house: {
           black: "#100f0f",
+          700: "#2b2b2b",
           600: "#1c1b1a",
           500: "#282726",
           400: "#343331",
@@ -26,6 +27,7 @@ module.exports = {
           200: "#575653",
           100: "#878580",
           white: "#cecdc3",
+          whitewarm: "#f2efeb",
           red: "#AF3029",
           redlight: "#D14D41",
           orange: "#BC5215",
