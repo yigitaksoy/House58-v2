@@ -17,7 +17,7 @@ const Services = () => {
 
   useIsomorphicLayoutEffect(() => {
     gsap.to(servicesRef.current, {
-      backgroundColor: "#ffffff",
+      backgroundColor: "#f2efeb",
       ease: "none",
       scrollTrigger: {
         trigger: servicesRef.current,
@@ -54,6 +54,7 @@ const Services = () => {
           title="We give life
         to ideas, and create sustainable digital products with a story!"
           className="mt-24 sm:mt-32 lg:mt-40"
+          hollow
         />
       </div>
       <Container className="mt-16 mb-16">
