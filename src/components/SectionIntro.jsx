@@ -6,10 +6,12 @@ export function SectionIntro({
   eyebrow,
   title,
   children,
+  hollow,
   smaller = false,
   invert = false,
   ...props
 }) {
+  const isHollow = hollow;
   return (
     <Container {...props}>
       <FadeIn className="max-w-2xl">
@@ -19,7 +21,8 @@ export function SectionIntro({
               <span
                 className={clsx(
                   "mb-6 block font-display font-heavy text-4xl",
-                  invert ? "text-white" : "text-house-bluelight",
+                  { "hollow-eyebrow": isHollow },
+                  invert ? "text-white" : "text-house-black",
                 )}
               >
                 {eyebrow}
