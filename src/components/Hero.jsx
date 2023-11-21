@@ -78,7 +78,7 @@ const Hero = () => {
   return (
     <section id="hero" className="h-screen" ref={main}>
       <Container className="mt-36 sm:mt-32 md:mt-60">
-        <FadeIn className="max-w-2xl">
+        <FadeIn className="max-w-2xl pt-14">
           <h1
             ref={h1Ref}
             className="font-display text-4xl font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl animate"
