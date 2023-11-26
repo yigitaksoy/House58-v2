@@ -7,93 +7,94 @@ import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MobileNav from "./MobileNav";
 import Logo from "@/images/logos/house58.png";
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Navbar = () => {
   const navRef = useRef();
   const [navBackground, setNavBackground] = useState("bg-transparent");
-  const prevScrollY = useRef(0);
+  const isInitialMount = useRef(true);
   const router = useRouter();
 
   useIsomorphicLayoutEffect(() => {
-    // GSAP animation for fade in on mount
-    gsap.set(navRef.current, { autoAlpha: 1 });
-
-    gsap.from(navRef.current, {
-      autoAlpha: 0,
-      duration: 0.5,
-      delay: 0.5,
-      ease: "power4.out",
-    });
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const isTop = currentScrollY < 50;
-      const isScrollingDown = currentScrollY > prevScrollY.current;
-      const hideNavbar = currentScrollY > 500;
 
-      // Always set the navbar background based on scroll position
+      // Set navbar background based on scroll position
       setNavBackground(
         currentScrollY > 50 ? "bg-house-black" : "bg-transparent",
       );
 
-      if (isTop) {
-        gsap.to(navRef.current, {
-          paddingTop: "3.5rem",
-          paddingBottom: "3.5rem",
-          autoAlpha: 1,
-          yPercent: 0,
-          ease: "power1.out",
-          duration: 0.6,
-        });
-      } else {
-        gsap.to(navRef.current, {
-          paddingTop: "1.6rem",
-          paddingBottom: "1.6rem",
-          autoAlpha: 1,
-          ease: "power1.out",
-          duration: 0.6,
-        });
-
-        // After a certain amount of scroll, hide or show the navbar based on the direction
-        if (hideNavbar) {
-          gsap.to(navRef.current, {
-            yPercent: isScrollingDown ? -100 : 0,
-            autoAlpha: isScrollingDown ? 0 : 1,
-            ease: "power1.out",
-            duration: 1,
-          });
-        }
-      }
-
-      prevScrollY.current = currentScrollY;
+      // Adjust navbar padding based on scroll position
+      gsap.to(navRef.current, {
+        paddingTop: currentScrollY < 50 ? "3.5rem" : "1.6rem",
+        paddingBottom: currentScrollY < 50 ? "3.5rem" : "1.6rem",
+        ease: "power1.out",
+        duration: 0.6,
+      });
     };
 
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup
+    // GSAP context for managing animations
+    const context = gsap.context(() => {
+      // Fade-in animation for navbar
+      if (isInitialMount.current) {
+        // Fade-in animation only on initial load
+        gsap.from(navRef.current, {
+          autoAlpha: 0,
+          duration: 0.5,
+          delay: 0.5,
+          ease: "power4.out",
+        });
+      }
+
+      // ScrollTrigger for hide/show animation
+      const showAnim = gsap
+        .from(navRef.current, {
+          yPercent: -100,
+          paused: true,
+          duration: 0.4,
+          ease: "power1.inOut",
+        })
+        .progress(1);
+
+      ScrollTrigger.create({
+        start: "top top",
+        end: 99999,
+        onUpdate: (self) => {
+          const scrollY = window.scrollY;
+          // After a certain amount of scroll, hide or show the navbar based on the direction
+          if (scrollY > 500) {
+            self.direction === -1 ? showAnim.play() : showAnim.reverse();
+          }
+        },
+      });
+    }, navRef.current);
+
+    // Indicate that the component is no longer on its initial mount
+    isInitialMount.current = false;
+
+    // Cleanup function
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      gsap.killTweensOf(navRef.current); // Kills any ongoing animations on the navbar
+      context.revert();
+      ScrollTrigger.refresh();
     };
-  }, []);
+  }, [router.asPath]);
 
   const handleLogoClick = (event) => {
     if (router.pathname === "/") {
       event.preventDefault();
-
-      // Check if the scroll position is already at the top
-      if (window.scrollY !== 0) {
-        // If not at the top, then scroll to the top with animation
-        gsap.to(window, {
-          duration: 1,
-          scrollTo: { y: 0, autoKill: false },
-          ease: "expo.inOut",
-        });
-      }
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: 0, autoKill: false },
+        ease: "expo.inOut",
+      });
     } else {
       router.push("/");
     }
@@ -104,7 +105,7 @@ const Navbar = () => {
       <nav
         id="navbar"
         ref={navRef}
-        className={`fixed top-0 left-0 w-full z-50 md:flex hidden justify-between items-center px-10 lg:px-16 lg:py-14 py-7 transition-colors duration-300 ${navBackground}`}
+        className={`fixed top-0 left-0 w-full z-50 md:flex hidden justify-between items-center px-10 lg:px-16 lg:py-14 py-7 ${navBackground}`}
         role="navigation"
       >
         <Link href="/" aria-label="Home" onClick={handleLogoClick}>
