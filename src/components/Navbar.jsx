@@ -100,6 +100,19 @@ const Navbar = () => {
     }
   };
 
+  const handleRouteClick = (event, targetRoute) => {
+    event.preventDefault(); // Always prevent default action
+    if (router.pathname === targetRoute) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: 0, autoKill: false },
+        ease: "expo.inOut",
+      });
+    } else {
+      router.push(targetRoute);
+    }
+  };
+
   return (
     <>
       <nav
@@ -112,26 +125,26 @@ const Navbar = () => {
           <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
         </Link>
         <div className="flex gap-6 lg:gap-20 text-md">
-          <Link
-            href="/about"
-            aria-label="About"
-            className="text-white hover:text-house-bluelight transition duration-200"
-          >
-            About
+          <Link href="/about" onClick={(e) => handleRouteClick(e, "/about")}>
+            <span className="text-white hover:text-house-bluelight transition duration-200">
+              About
+            </span>
           </Link>
           <Link
             href="/services"
-            aria-label="Services"
-            className="text-white hover:text-house-bluelight transition duration-200"
+            onClick={(e) => handleRouteClick(e, "/services")}
           >
-            Services
+            <span className="text-white hover:text-house-bluelight transition duration-200">
+              Services
+            </span>
           </Link>
           <Link
-            href="/"
-            aria-label="Contact"
-            className="text-white  hover:text-house-bluelight transition duration-200"
+            href="/contact"
+            onClick={(e) => handleRouteClick(e, "/contact")}
           >
-            Contact
+            <span className="text-white hover:text-house-bluelight transition duration-200">
+              Contact
+            </span>
           </Link>
         </div>
       </nav>
