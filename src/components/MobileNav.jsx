@@ -46,6 +46,28 @@ const MobileNav = () => {
     }
   };
 
+  const handleRouteClick = (event, targetRoute) => {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Close the navigation menu
+    if (open) {
+      toggleNav();
+    }
+
+    // Wait for the menu to close before scrolling or navigating
+    setTimeout(() => {
+      if (router.pathname === targetRoute) {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: 0, autoKill: false },
+          ease: "expo.inOut",
+        });
+      } else {
+        router.push(targetRoute);
+      }
+    }, 100);
+  };
+
   useIsomorphicLayoutEffect(() => {
     tl2.current = gsap
       .timeline()
@@ -131,7 +153,7 @@ const MobileNav = () => {
                 href="/about"
                 aria-label="About"
                 className="group flex items-center justify-between p-3 cursor-pointer"
-                onClick={toggleNav}
+                onClick={(e) => handleRouteClick(e, "/about")}
               >
                 <p
                   className={`group-hover:translate-x-[20px] transition font-heavy ${
@@ -145,7 +167,7 @@ const MobileNav = () => {
                 href="/services"
                 aria-label="Services"
                 className="group flex items-center justify-between p-3 cursor-pointer"
-                onClick={toggleNav}
+                onClick={(e) => handleRouteClick(e, "/services")}
               >
                 <p
                   className={`group-hover:translate-x-[20px] transition font-heavy ${
@@ -159,7 +181,7 @@ const MobileNav = () => {
                 href="/contact"
                 aria-label="Contact"
                 className="group flex items-center justify-between p-3 cursor-pointer"
-                onClick={toggleNav}
+                onClick={(e) => handleRouteClick(e, "/contact")}
               >
                 <p
                   className={`group-hover:translate-x-[20px] transition font-heavy ${
