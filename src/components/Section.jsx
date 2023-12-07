@@ -15,7 +15,7 @@ export default function Section({ title, image, children }) {
             />
           </FadeIn>
         </div>
-        <div className="mt-12 lg:mt-0 lg:pt-16 lg:w-[37rem] lg:flex-none lg:group-even/section:order-first">
+        <div className="mt-12 lg:mt-0 lg:w-[37rem] lg:flex-none lg:group-even/section:order-first">
           <FadeIn>
             <div
               className="font-display text-base font-semibold italic before:text-neutral-300 before:content-['/_'] after:text-white after:content-[counter(section,decimal-leading-zero)]"
