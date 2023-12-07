@@ -1,7 +1,7 @@
 import webDesignImg from "@/images/web-design.png";
 import webDevImg from "@/images/web-development.png";
 import ecommImg from "@/images/ecommerce.png";
-
+import maintImg from "@/images/web-development.png";
 export const data = [
   {
     id: 1,
@@ -61,6 +61,26 @@ export const data = [
       "Optimizations",
       "Ecommerce Tracking",
       "Custom Solutions",
+    ],
+  },
+  {
+    id: 4,
+    title: "Website Maintanence",
+    image: maintImg,
+    paragraph1:
+      "House 58 ensures your website is reliable, secure, and fast, supporting your business growth. Our Website Maintenance services include regular updates, content refreshes, security checks, and optimizations for peak performance. We're dedicated to keeping your site up-to-date and running smoothly.",
+    paragraph2:
+      "Our proactive approach extends beyond mere upkeep. We focus on regular backups, CMS and plugin updates, and ensuring compatibility across devices and browsers, effectively preventing potential issues. This way, your website is not just maintained but also evolves with the latest technological trends and user demands.",
+    paragraph3:
+      "With House 58's Website Maintenance, you gain more than just technical support; you get a partnership that allows you to focus on growing your business. We handle the complexities of website management, ensuring your digital presence is both robust and dynamically aligned with your brand's ongoing development.",
+    tags: [
+      "Performance",
+      "Scalability",
+      "Site Health",
+      "Security Management",
+      "Content Updates",
+      "Data Security",
+      "Cross-Platform Compatibility",
     ],
   },
 ];
