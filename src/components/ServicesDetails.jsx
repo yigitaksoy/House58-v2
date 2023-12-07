@@ -22,8 +22,10 @@ const ServicesDetails = () => {
     <>
       <Head>
         <title>
-          House 58 Digital | Custom Web Design, Development, E-commerce &
-          Website Maintenance Services
+          <title>
+            House 58 Digital | Expert Web Design, Development & E-commerce
+            Solutions in Amsterdam
+          </title>
         </title>
         <meta
           name="description"
