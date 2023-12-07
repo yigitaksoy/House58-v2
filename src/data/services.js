@@ -65,7 +65,7 @@ export const data = [
   },
   {
     id: 4,
-    title: "Website Maintanence",
+    title: "Website Maintenance",
     image: maintImg,
     paragraph1:
       "House 58 ensures your website is reliable, secure, and fast, supporting your business growth. Our Website Maintenance services include regular updates, content refreshes, security checks, and optimizations for peak performance. We're dedicated to keeping your site up-to-date and running smoothly.",
