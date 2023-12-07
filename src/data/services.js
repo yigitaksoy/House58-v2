@@ -1,5 +1,6 @@
 import webDesignImg from "@/images/web-design.png";
 import webDevImg from "@/images/web-development.png";
+import ecommImg from "@/images/ecommerce.png";
 
 export const data = [
   {
@@ -35,11 +36,31 @@ export const data = [
     tags: [
       "Optimization",
       "Applications",
-      "Cloud Solutions",
       "CRM",
       "Backend",
-      "Custom Solutions",
+      "API Integrations",
+      "Cloud-based Solutions",
       "AI Integration",
+    ],
+  },
+  {
+    id: 3,
+    title: "E-commerce",
+    image: ecommImg,
+    paragraph1:
+      "House 58 delivers tailored e-commerce solutions for every scale of online retail, from small boutique stores to large-scale platforms and membership sites with recurring billing. Specializing in both custom shopping cart platforms and popular systems like WooCommerce and Shopify, we ensure seamless, efficient shopping experiences.",
+    paragraph2:
+      "Our expertise extends beyond crafting appealing online stores; we integrate key tools such as Google Analytics, advanced payment systems, and CRM tools, providing a comprehensive e-commerce experience. This integration offers deeper insights into customer behavior and enhances your store's user-friendliness, security, and responsiveness, aligning perfectly with your brand and business objectives.",
+    paragraph3:
+      "As your partner in online retail, House 58 is dedicated to developing e-commerce websites that stand out in the market, whether custom-built or optimized existing platforms. We focus on attracting and retaining customers, thereby driving your business growth and success.",
+    tags: [
+      "Woocommerce",
+      "Shopify",
+      "Data + Analytics",
+      "Product Pages",
+      "Optimizations",
+      "Ecommerce Tracking",
+      "Custom Solutions",
     ],
   },
 ];
