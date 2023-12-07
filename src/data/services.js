@@ -7,11 +7,11 @@ export const data = [
     title: "Web Design",
     image: webDesignImg,
     paragraph1:
-      "At House 58, we understand that a website is the digital face of your business, setting the stage for customer interaction and brand perception. Our web development service begins with a deep understanding of your business goals and audience needs. We leverage cutting-edge tools and frameworks to ensure your website not only looks stunning but also functions flawlessly.",
+      "At House 58, we understand that a website is the digital face of your business, setting the stage for customer interaction and brand perception. Our web design services begin with a deep understanding of your business goals and audience needs. We leverage cutting-edge tools and frameworks to ensure your website not only looks stunning but also functions flawlessly.",
     paragraph2:
-      "We focus on creating intuitive user interfaces, integrating engaging content, and optimizing for mobile responsiveness, ensuring that your website stands out in today's competitive digital landscape. We prioritize user experience, creating websites that are easy to navigate and visually appealing.",
+      "We focus on creating intuitive user interfaces, integrating engaging content, and optimizing for mobile responsiveness and SEO, ensuring that your website stands out in today's competitive digital landscape. We prioritize user experience, creating websites that are easy to navigate and visually appealing.",
     paragraph3:
-      "Finally, our commitment to your website's success extends beyond its launch. We provide ongoing support and maintenance, ensuring your site remains up-to-date with the latest web standards and technologies. Whether it's implementing new features, updating content, or optimizing for search engines, House 58 is dedicated to ensuring your website continues to drive business growth and deliver exceptional user experiences.",
+      "Dedicated to fostering business growth and digital interaction, our services are tailored to meet your unique requirements. With a deep understanding of WordPress and custom web solutions, we ensure your web presence is not just contemporary but also robust and adaptable, serving as a dynamic engine for your brand's ongoing growth.",
     tags: [
       "Redesigns",
       "Frontend",
