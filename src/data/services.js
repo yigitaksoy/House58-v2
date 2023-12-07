@@ -27,11 +27,11 @@ export const data = [
     title: "Web Development",
     image: webDevImg,
     paragraph1:
-      "In the dynamic world of web development, House 58 provides comprehensive Web Development services. We're dedicated to building solutions that not only meet but exceed the digital needs of your business. Our approach is grounded in creating web applications that are both highly functional and aesthetically appealing, ensuring your digital presence resonates with your audience.",
+      "In the dynamic world of web development, House 58 offers comprehensive services tailored to your business's digital challenges. We specialize in building web applications that are not only robust and high-performing but also adept at solving complex problems. Our focus is on ensuring your digital solutions function seamlessly, delivering performance that elevates your brand and meets your audience's needs.",
     paragraph2:
-      "Recognizing the growing importance of AI and cloud technologies in the digital landscape, we at House 58 offer integrated solutions that enhance your web platform with these advanced technologies. Our expertise lies in skillfully implementing and leveraging AI and cloud capabilities to deliver web applications that are scalable, secure, and at the forefront of digital innovation.",
+      "Our approach utilizes the latest technologies, such as AI integrations and cloud-based solutions, to boost the performance and functionality of your web platforms. We deliver robust, scalable, and secure web solutions, ensuring your online presence is versatile and achieves optimal performance.",
     paragraph3:
-      "At House 58, we understand that each business has unique needs. Our commitment lies in delivering tailored web development services – from crafting user-friendly interfaces and robust backend systems to efficient data management. We strive to build a web presence that not only reflects your brand's identity but also supports its growth. Partner with us to create a web solution that is contemporary, adaptable, and ready to evolve alongside your business.",
+      "Our commitment is to build web solutions that are contemporary and ready to evolve with your business. Partnering with House 58 means gaining a web presence that is an asset to your brand's ongoing development, adaptable to changing market demands and customer expectations.",
     tags: [
       "Optimization",
       "Applications",
