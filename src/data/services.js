@@ -1,7 +1,7 @@
 import webDesignImg from "@/images/web-design.png";
 import webDevImg from "@/images/web-development.png";
 import ecommImg from "@/images/ecommerce.png";
-import maintImg from "@/images/web-development.png";
+import maintImg from "@/images/website-maintenance.png";
 export const data = [
   {
     id: 1,
