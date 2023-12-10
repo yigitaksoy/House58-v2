@@ -36,44 +36,10 @@ const ServicesIntro = () => {
   const h1Ref = useRef();
 
   useIsomorphicLayoutEffect(() => {
-    let animate = gsap.utils.selector(main.current)(".animate");
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 800px)", () => {
-      gsap.to(animate, {
-        y: -50,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: animate,
-          start: "40% 40%",
-          end: "bottom 5%",
-          scrub: true,
-        },
-      });
-    });
-
-    mm.add("(max-width: 799px)", () => {
-      gsap.to(animate, {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: animate,
-          start: "bottom 10%",
-          end: "top 10%",
-          scrub: 1,
-          reverse: true,
-          smoothChildTiming: true,
-        },
-      });
-    });
-
-    // Mouse move effect
     const moveText = (event) => {
       const { clientX, clientY } = event;
       const { left, top, width, height } = main.current.getBoundingClientRect();
-      const x = ((clientX - left - width / 2) / width) * 8; // strength of the effect
+      const x = ((clientX - left - width / 2) / width) * 8;
       const y = ((clientY - top - height / 2) / height) * 15;
 
       gsap.to([h1Ref.current], {
@@ -84,11 +50,50 @@ const ServicesIntro = () => {
       });
     };
 
-    main.current.addEventListener("mousemove", moveText);
+    // Create a GSAP context
+    let ctx = gsap.context(() => {
+      let animate = gsap.utils.selector(main.current)(".animate");
+      let mm = gsap.matchMedia();
+
+      // Media query for screens wider than 800px
+      mm.add("(min-width: 800px)", () => {
+        gsap.to(animate, {
+          y: -50,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: animate,
+            start: "40% 40%",
+            end: "bottom 5%",
+            scrub: true,
+          },
+        });
+      });
+
+      // Media query for screens narrower than 800px
+      mm.add("(max-width: 799px)", () => {
+        gsap.to(animate, {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: animate,
+            start: "bottom 10%",
+            end: "top 10%",
+            scrub: 1,
+            reverse: true,
+            smoothChildTiming: true,
+          },
+        });
+      });
+    }, main.current);
+
+    ctx.add("moveText", moveText);
+
+    main.current.addEventListener("mousemove", (e) => ctx.moveText(e));
 
     // Cleanup
     return () => {
-      mm.revert();
+      ctx.revert();
       main.current.removeEventListener("mousemove", moveText);
     };
   }, []);
