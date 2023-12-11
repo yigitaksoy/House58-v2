@@ -122,11 +122,9 @@ const Navbar = () => {
         className={`fixed top-0 left-0 w-full z-50 md:flex hidden justify-between items-center px-10 lg:px-16 lg:py-14 py-7 ${navBackground}`}
         role="navigation"
       >
-        <Magnetic>
-          <Link href="/" aria-label="Home" onClick={handleLogoClick}>
-            <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
-          </Link>
-        </Magnetic>
+        <Link href="/" aria-label="Home" onClick={handleLogoClick}>
+          <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
+        </Link>
         <div className="flex gap-6 lg:gap-20 text-md">
           <Magnetic>
             <Link href="/about" onClick={(e) => handleRouteClick(e, "/about")}>
