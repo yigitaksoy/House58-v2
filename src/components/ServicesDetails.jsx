@@ -24,25 +24,26 @@ const ServicesDetails = () => {
       mm.add("(min-width: 800px)", () => {
         gsap.fromTo(
           animateTitle,
-          { opacity: 0 }, // from state
+          { opacity: 0 },
           {
-            scale: 1,
             opacity: 1,
             ease: "none",
             scrollTrigger: {
               trigger: animateTitle,
               start: "top 45%",
               end: "bottom 40%",
-              scrub: true,
+              onEnter: () => gsap.to(animateTitle, { opacity: 1 }),
+              onEnterBack: () => gsap.to(animateTitle, { opacity: 1 }),
+              onLeaveBack: () => gsap.to(animateTitle, { opacity: 0 }),
             },
-          }, // to state
+          },
         );
       });
 
       mm.add("(max-width: 799px)", () => {
         gsap.fromTo(
           animateTitle,
-          { opacity: 0 }, // from state
+          { opacity: 0 },
           {
             scale: 1,
             opacity: 1,
@@ -53,15 +54,13 @@ const ServicesDetails = () => {
               end: "bottom 50%",
               scrub: true,
             },
-          }, // to state
+          },
         );
       });
     });
 
     // Cleanup
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   const renderParagraph = (text) => {
