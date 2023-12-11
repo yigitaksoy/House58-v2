@@ -127,8 +127,12 @@ const Navbar = () => {
         </Link>
         <div className="flex gap-6 lg:gap-20 text-md">
           <Magnetic>
-            <Link href="/about" onClick={(e) => handleRouteClick(e, "/about")}>
-              <span className="text-white hover:text-house-bluelight transition duration-200">
+            <Link
+              href="/about"
+              onClick={(e) => handleRouteClick(e, "/about")}
+              className="group"
+            >
+              <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px]">
                 About
               </span>
             </Link>
@@ -137,8 +141,9 @@ const Navbar = () => {
             <Link
               href="/services"
               onClick={(e) => handleRouteClick(e, "/services")}
+              className="group"
             >
-              <span className="text-white hover:text-house-bluelight transition duration-200">
+              <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_1.5px] transition-all ease-out">
                 Services
               </span>
             </Link>
@@ -147,8 +152,9 @@ const Navbar = () => {
             <Link
               href="/contact"
               onClick={(e) => handleRouteClick(e, "/contact")}
+              className="group"
             >
-              <span className="text-white hover:text-house-bluelight transition duration-200">
+              <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_1.5px] transition-all ease-out">
                 Contact
               </span>
             </Link>
