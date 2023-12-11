@@ -9,6 +9,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import MobileNav from "./MobileNav";
+import Magnetic from "./Magnetic";
 import Logo from "@/images/logos/house58.png";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
@@ -121,31 +122,39 @@ const Navbar = () => {
         className={`fixed top-0 left-0 w-full z-50 md:flex hidden justify-between items-center px-10 lg:px-16 lg:py-14 py-7 ${navBackground}`}
         role="navigation"
       >
-        <Link href="/" aria-label="Home" onClick={handleLogoClick}>
-          <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
-        </Link>
+        <Magnetic>
+          <Link href="/" aria-label="Home" onClick={handleLogoClick}>
+            <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
+          </Link>
+        </Magnetic>
         <div className="flex gap-6 lg:gap-20 text-md">
-          <Link href="/about" onClick={(e) => handleRouteClick(e, "/about")}>
-            <span className="text-white hover:text-house-bluelight transition duration-200">
-              About
-            </span>
-          </Link>
-          <Link
-            href="/services"
-            onClick={(e) => handleRouteClick(e, "/services")}
-          >
-            <span className="text-white hover:text-house-bluelight transition duration-200">
-              Services
-            </span>
-          </Link>
-          <Link
-            href="/contact"
-            onClick={(e) => handleRouteClick(e, "/contact")}
-          >
-            <span className="text-white hover:text-house-bluelight transition duration-200">
-              Contact
-            </span>
-          </Link>
+          <Magnetic>
+            <Link href="/about" onClick={(e) => handleRouteClick(e, "/about")}>
+              <span className="text-white hover:text-house-bluelight transition duration-200">
+                About
+              </span>
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              href="/services"
+              onClick={(e) => handleRouteClick(e, "/services")}
+            >
+              <span className="text-white hover:text-house-bluelight transition duration-200">
+                Services
+              </span>
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              href="/contact"
+              onClick={(e) => handleRouteClick(e, "/contact")}
+            >
+              <span className="text-white hover:text-house-bluelight transition duration-200">
+                Contact
+              </span>
+            </Link>
+          </Magnetic>
         </div>
       </nav>
       <nav className="md:hidden">
