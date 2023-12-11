@@ -53,6 +53,7 @@ const ServicesIntro = () => {
     // Create a GSAP context
     let ctx = gsap.context(() => {
       let animate = gsap.utils.selector(main.current)(".animate");
+      let animateTitle = gsap.utils.selector(main.current)(".animate-title");
       let mm = gsap.matchMedia();
 
       // Media query for screens wider than 800px
@@ -64,24 +65,46 @@ const ServicesIntro = () => {
           scrollTrigger: {
             trigger: animate,
             start: "40% 40%",
-            end: "bottom 5%",
+            end: "bottom 25%",
+            scrub: true,
+          },
+        });
+        gsap.to(animateTitle, {
+          y: -50,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: animateTitle,
+            start: "40% 40%",
+            end: "bottom 10%",
             scrub: true,
           },
         });
       });
 
-      // Media query for screens narrower than 800px
       mm.add("(max-width: 799px)", () => {
         gsap.to(animate, {
+          y: -10,
           opacity: 0,
           ease: "none",
           scrollTrigger: {
             trigger: animate,
-            start: "bottom 10%",
-            end: "top 10%",
+            start: "bottom 40%",
+            end: "top 25%",
             scrub: 1,
             reverse: true,
             smoothChildTiming: true,
+          },
+        });
+        gsap.to(animateTitle, {
+          y: -20,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: animateTitle,
+            start: "40% 40%",
+            end: "bottom 10%",
+            scrub: true,
           },
         });
       });
@@ -104,7 +127,7 @@ const ServicesIntro = () => {
         <FadeIn className="max-w-2xl pt-14">
           <h1
             ref={h1Ref}
-            className="text-4xl font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl md:leading-[4.5rem] animate"
+            className="text-4xl font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl md:leading-[4.5rem] animate-title"
           >
             Designing standout solutions using sound strategic thinking.
           </h1>
