@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/router";
+import { gsap } from "gsap/dist/gsap";
 import Link from "next/link";
 import Magnetic from "@/components/Magnetic";
 import { SiLinkedin } from "react-icons/si";
@@ -7,6 +9,21 @@ import { TbMailFast } from "react-icons/tb";
 import WeatherWidget from "./WeatherWidget";
 
 const Footer = () => {
+  const router = useRouter();
+
+  const handleRouteClick = (event, targetRoute) => {
+    event.preventDefault();
+    if (router.pathname === targetRoute) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: 0, autoKill: false },
+        ease: "expo.inOut",
+      });
+    } else {
+      router.push(targetRoute);
+    }
+  };
+
   return (
     <footer id="footer" className="h-[70vh] bg-[#b2ff44]">
       <div className="border-t-4 border-house-black"></div>
@@ -45,28 +62,44 @@ const Footer = () => {
               </div>
               <div className="order-1 mb-8 grid grid-cols-2 gap-6 xl:order-2 xl:mb-0 xl:flex">
                 <Magnetic>
-                  <Link href="/" className="group">
+                  <Link
+                    href="/"
+                    onClick={(e) => handleRouteClick(e, "/")}
+                    className="group"
+                  >
                     <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] font-thin text-sm">
                       Home
                     </span>
                   </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href="/" className="group">
+                  <Link
+                    href="/"
+                    onClick={(e) => handleRouteClick(e, "/")}
+                    className="group"
+                  >
                     <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] font-thin text-sm">
                       About
                     </span>
                   </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href="/services" className="group">
+                  <Link
+                    href="/services"
+                    onClick={(e) => handleRouteClick(e, "/services")}
+                    className="group"
+                  >
                     <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] font-thin text-sm">
                       Services
                     </span>
                   </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href="/" className="group">
+                  <Link
+                    href="/"
+                    onClick={(e) => handleRouteClick(e, "/")}
+                    className="group"
+                  >
                     <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] font-thin text-sm">
                       Contact
                     </span>
