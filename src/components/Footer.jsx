@@ -5,7 +5,7 @@ import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import Image from "next/image";
 import Link from "next/link";
 import Magnetic from "@/components/Magnetic";
-import { weatherIcons } from "@/data/weather-data";
+import { dayIcons, nightIcons } from "@/data/weather-data";
 import { SiLinkedin } from "react-icons/si";
 import { TbMailFast } from "react-icons/tb";
 
@@ -13,6 +13,10 @@ const Footer = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [currentHours, setCurrentHours] = useState("");
   const [currentMinutes, setCurrentMinutes] = useState("");
+
+  const getWeatherIcon = (code, isDay) => {
+    return isDay ? dayIcons[code] : nightIcons[code];
+  };
 
   const fetchWeatherData = async () => {
     try {
@@ -93,7 +97,10 @@ const Footer = () => {
                     </div>
                     <div>
                       <Image
-                        src={weatherIcons[weatherData.weathercode]}
+                        src={getWeatherIcon(
+                          weatherData.weathercode,
+                          weatherData.is_day,
+                        )}
                         alt="weather-icon"
                         className=" mt-[3.5px] h-[15.2px] w-[16px]"
                       />
