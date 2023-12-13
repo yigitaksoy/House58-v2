@@ -59,6 +59,7 @@ const WeatherWidget = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
+      console.log(data);
       return data.current_weather;
     } catch (error) {
       console.error("Error fetching weather data:", error);
@@ -81,6 +82,10 @@ const WeatherWidget = () => {
 
     fetchAllWeatherData();
 
+    const weatherIntervalId = setInterval(() => {
+      fetchAllWeatherData();
+    }, 900000);
+
     const intervalId = setInterval(() => {
       const now = new Date();
       setCurrentHours(
@@ -89,7 +94,10 @@ const WeatherWidget = () => {
       setCurrentMinutes(now.toLocaleTimeString([], { minute: "2-digit" }));
     }, 1000);
 
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(intervalId);
+      clearInterval(weatherIntervalId);
+    };
   }, []);
 
   const getWeatherIcon = (code, isDay) => {
@@ -102,7 +110,7 @@ const WeatherWidget = () => {
       className="flex justify-center items-center relative"
     >
       <div className="flex opacity-0" ref={st1}>
-        <div className="mr-3">AMS</div>
+        <div className="mr-3 font-medium">AMS</div>
         {amsterdamWeather && (
           <>
             <div className="mr-3">{amsterdamWeather.temperature}°C</div>
@@ -123,7 +131,7 @@ const WeatherWidget = () => {
         )}
       </div>
       <div className="flex absolute opacity-0" ref={st2}>
-        <div className="mr-3">BER</div>
+        <div className="mr-3 font-medium">BER</div>
         {berlinWeather && (
           <>
             <div className="mr-3">{berlinWeather.temperature}°C</div>
