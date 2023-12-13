@@ -1,57 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
-import Image from "next/image";
 import Link from "next/link";
 import Magnetic from "@/components/Magnetic";
-import { dayIcons, nightIcons } from "@/data/weather-data";
 import { SiLinkedin } from "react-icons/si";
 import { TbMailFast } from "react-icons/tb";
+import WeatherWidget from "./WeatherWidget";
 
 const Footer = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [currentHours, setCurrentHours] = useState("");
-  const [currentMinutes, setCurrentMinutes] = useState("");
-
-  const getWeatherIcon = (code, isDay) => {
-    return isDay ? dayIcons[code] : nightIcons[code];
-  };
-
-  const fetchWeatherData = async () => {
-    try {
-      const response = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=52.37&longitude=4.89&current_weather=true&timezone=auto",
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      setWeatherData(data.current_weather);
-      console.log("Weather data:", data.current_weather);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-    }
-  };
-
-  useIsomorphicLayoutEffect(() => {
-    fetchWeatherData();
-    const weatherInterval = setInterval(fetchWeatherData, 900000);
-
-    const intervalId = setInterval(() => {
-      const now = new Date();
-      setCurrentHours(
-        now.toLocaleTimeString([], { hour: "2-digit", hour12: false }),
-      );
-      setCurrentMinutes(now.toLocaleTimeString([], { minute: "2-digit" }));
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-      clearInterval(weatherInterval);
-    };
-  }, []);
-
   return (
     <footer id="footer" className="h-[70vh] bg-[#b2ff44]">
       <div className="border-t-4 border-house-black"></div>
@@ -86,27 +41,7 @@ const Footer = () => {
                 </Magnetic>
               </div>
               <div className="order-2 inline-flex text-sm font-thin text-house-whitewarm">
-                {weatherData && (
-                  <div className="weather-widget flex">
-                    <div className="mr-3">AMS</div>
-                    <div className="mr-3">{weatherData.temperature}°C</div>
-                    <div className="mr-3">
-                      {currentHours}
-                      <span className="animate-pulse">:</span>
-                      {currentMinutes}
-                    </div>
-                    <div>
-                      <Image
-                        src={getWeatherIcon(
-                          weatherData.weathercode,
-                          weatherData.is_day,
-                        )}
-                        alt="weather-icon"
-                        className=" mt-[3.5px] h-[15.2px] w-[16px]"
-                      />
-                    </div>
-                  </div>
-                )}
+                <WeatherWidget />
               </div>
               <div className="order-1 mb-8 grid grid-cols-2 gap-6 xl:order-2 xl:mb-0 xl:flex">
                 <Magnetic>
