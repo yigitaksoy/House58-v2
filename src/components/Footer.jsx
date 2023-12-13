@@ -56,10 +56,10 @@ const Footer = () => {
           <div className="mx-auto max-w-screen-section px-4 sm:px-8 lg:px-24 lg:text-left">
             <div className="flex flex-col pt-12 xl:flex-row xl:items-center xl:justify-between xl:pt-20">
               <div className="order-2 mt-8 flex gap-4 xl:mt-0">
-                {/* Social media icons */}
                 <Magnetic>
                   <Link
                     href="https://www.linkedin.com/company/house-58-digital/"
+                    aria-label="Follow us on LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-house-whitewarm"
@@ -71,6 +71,7 @@ const Footer = () => {
                 <Magnetic>
                   <a
                     href="mailto:hello@house58.nl?subject=Lets%20Start%20a%20Project"
+                    aria-label="Email us"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-house-whitewarm"
