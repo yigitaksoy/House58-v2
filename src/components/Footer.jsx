@@ -80,7 +80,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="flex items-center text-house-whitewarm"
                   >
-                    <TbMailFast className="text-house-bluelight w-6 h-6" />
+                    <TbMailFast className="text-house-bluelight w-7 h-7" />
                     <span className="text-sm font-thin ml-1">Email</span>
                   </a>
                 </Magnetic>
