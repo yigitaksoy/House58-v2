@@ -10,14 +10,16 @@ gsap.registerPlugin(ScrollTrigger);
 const WeatherWidget = () => {
   const [amsterdamWeather, setAmsterdamWeather] = useState(null);
   const [berlinWeather, setBerlinWeather] = useState(null);
+  const [newYorkWeather, setNewYorkWeather] = useState(null);
   const [currentHours, setCurrentHours] = useState("");
   const [currentMinutes, setCurrentMinutes] = useState("");
   const st1 = useRef(null);
   const st2 = useRef(null);
+  const st3 = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      let sts = [st1.current, st2.current];
+      let sts = [st1.current, st2.current, st3.current];
       let tl = gsap.timeline({ repeat: -1 });
       sts.forEach((st) => {
         tl.to(st, {
@@ -66,6 +68,14 @@ const WeatherWidget = () => {
     }
   };
 
+  const getTimeInTimeZone = (timeZone, type) => {
+    return new Intl.DateTimeFormat("en-US", {
+      [type]: "2-digit",
+      hour12: false,
+      timeZone: timeZone,
+    }).format(new Date());
+  };
+
   useEffect(() => {
     const fetchAllWeatherData = async () => {
       const amsterdamData = await fetchWeatherData({
@@ -78,6 +88,11 @@ const WeatherWidget = () => {
         longitude: 13.4105,
       });
       setBerlinWeather(berlinData);
+      const newYorkData = await fetchWeatherData({
+        latitude: 40.7143,
+        longitude: -74.006,
+      });
+      setNewYorkWeather(newYorkData);
     };
 
     fetchAllWeatherData();
@@ -87,11 +102,16 @@ const WeatherWidget = () => {
     }, 900000);
 
     const intervalId = setInterval(() => {
-      const now = new Date();
-      setCurrentHours(
-        now.toLocaleTimeString([], { hour: "2-digit", hour12: false }),
-      );
-      setCurrentMinutes(now.toLocaleTimeString([], { minute: "2-digit" }));
+      setCurrentHours({
+        amsterdam: getTimeInTimeZone("Europe/Amsterdam", "hour"),
+        berlin: getTimeInTimeZone("Europe/Berlin", "hour"),
+        newYork: getTimeInTimeZone("America/New_York", "hour"),
+      });
+      setCurrentMinutes({
+        amsterdam: getTimeInTimeZone("Europe/Amsterdam", "minute"),
+        berlin: getTimeInTimeZone("Europe/Berlin", "minute"),
+        newYork: getTimeInTimeZone("America/New_York", "minute"),
+      });
     }, 1000);
 
     return () => {
@@ -115,9 +135,9 @@ const WeatherWidget = () => {
           <>
             <div className="mr-3">{amsterdamWeather.temperature}°C</div>
             <div className="mr-3">
-              {currentHours}
+              {currentHours.amsterdam}
               <span className="animate-pulse">:</span>
-              {currentMinutes}
+              {currentMinutes.amsterdam}
             </div>
             <Image
               src={getWeatherIcon(
@@ -131,14 +151,35 @@ const WeatherWidget = () => {
         )}
       </div>
       <div className="flex absolute opacity-0" ref={st2}>
+        <div className="mr-3 font-medium">NYC</div>
+        {newYorkWeather && (
+          <>
+            <div className="mr-3">{newYorkWeather.temperature}°C</div>
+            <div className="mr-3">
+              {currentHours.newYork}
+              <span className="animate-pulse">:</span>
+              {currentMinutes.newYork}
+            </div>
+            <Image
+              src={getWeatherIcon(
+                newYorkWeather.weathercode,
+                newYorkWeather.is_day,
+              )}
+              alt="Weather icon"
+              className="mt-[3.5px] h-[15.2px] w-[16px]"
+            />
+          </>
+        )}
+      </div>
+      <div className="flex absolute opacity-0" ref={st3}>
         <div className="mr-3 font-medium">BER</div>
         {berlinWeather && (
           <>
             <div className="mr-3">{berlinWeather.temperature}°C</div>
             <div className="mr-3">
-              {currentHours}
+              {currentHours.berlin}
               <span className="animate-pulse">:</span>
-              {currentMinutes}
+              {currentMinutes.berlin}
             </div>
             <Image
               src={getWeatherIcon(
