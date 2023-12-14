@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="border-t border-house-black bg-house-black pb-12 xl:pb-20">
           <div className="mx-auto max-w-screen-section px-4 sm:px-8 lg:px-24 lg:text-left">
             <div className="flex flex-col pt-12 xl:flex-row xl:items-center xl:justify-between xl:pt-20">
-              <div className="order-2 mt-8 flex gap-4 xl:mt-0">
+              <div className="order-2 flex gap-4 xl:mt-0 items-center justify-center">
                 <Magnetic>
                   <Link
                     href="https://www.linkedin.com/company/house-58-digital/"
@@ -57,10 +57,10 @@ const Footer = () => {
                   </a>
                 </Magnetic>
               </div>
-              <div className="order-2 inline-flex text-sm font-thin text-house-whitewarm">
+              <div className="order-2 inline-flex text-sm font-thin text-house-whitewarm xl:mt-0 mt-8 items-center justify-center">
                 <WeatherWidget />
               </div>
-              <div className="order-1 mb-8 grid grid-cols-2 gap-6 xl:order-2 xl:mb-0 xl:flex">
+              <div className="order-1 mb-8 flex flex-row gap-6 xl:order-2 xl:mb-0 xl:flex items-center justify-center">
                 <Magnetic>
                   <Link
                     href="/"
@@ -106,8 +106,8 @@ const Footer = () => {
                   </Link>
                 </Magnetic>
               </div>
-              <div className="order-2 mt-8 inline-flex gap-4 xl:mt-0">
-                <p className="order-2 inline-flex text-sm font-thin text-house-whitewarm">
+              <div className="order-2 mt-14 inline-flex gap-4 xl:mt-0 items-center justify-center">
+                <p className="order-2 inline-flex text-sm font-thin text-house-whitewarm text-center">
                   © 2023{" "}
                   <span className="pl-1 font-heavy">House 58 Digital</span>.
                 </p>
