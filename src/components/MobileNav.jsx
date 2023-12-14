@@ -8,6 +8,8 @@ import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import Logo from "@/images/logos/house58.png";
+import { SiLinkedin } from "react-icons/si";
+import { TbMailFast } from "react-icons/tb";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -195,27 +197,29 @@ const MobileNav = () => {
             <div className="px-4 mt-[25vh]">
               <span className="text-sm text-neutral-500">Links</span>
               <div className="mt-4 mb-4 h-[1px] bg-neutral-600"></div>
-              <div className="flex text-sm">
-                <a
+              <div
+                className={`flex text-sm group transition items-center mr-8 ${
+                  open ? "" : "translate-x-[40px] duration-300"
+                }`}
+              >
+                <Link
                   href="https://www.linkedin.com/company/house-58-digital/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className={`group transition mr-5 ${
-                    open ? "" : "translate-x-[40px] duration-300"
-                  }`}
+                  aria-label="Follow us on LinkedIn"
+                  className="group transition flex items-center mr-8"
                 >
-                  <p>LinkedIn</p>
-                </a>
-                <a
+                  <SiLinkedin className="text-house-bluelight" />
+                  <span className="ml-1">LinkedIn</span>
+                </Link>
+                <Link
                   href="mailto:hello@house58.nl?subject=Lets%20Start%20a%20Project"
-                  aria-label="Email"
-                  className={`group transition ${
-                    open ? "" : "translate-x-[40px] duration-300"
-                  }`}
+                  aria-label="Email us"
+                  className="group transition flex items-center"
                 >
-                  <p>Email</p>
-                </a>
+                  <TbMailFast className="text-house-bluelight w-6 h-6" />
+                  <span className="ml-1">Email</span>
+                </Link>
               </div>
             </div>
             <div className="px-4"></div>
