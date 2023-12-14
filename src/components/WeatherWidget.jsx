@@ -19,34 +19,42 @@ const WeatherWidget = () => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      let sts = [st1.current, st2.current, st3.current];
-      let tl = gsap.timeline({ repeat: -1 });
-      sts.forEach((st) => {
-        tl.to(st, {
-          y: "-3px",
+      let targets = [st1.current, st2.current, st3.current];
+      gsap.set("#weather-widget div", { autoAlpha: 1 });
+      let animation = gsap.timeline({ repeat: -1 });
+
+      let duration = 1;
+      let pause = 2.5;
+      let stagger = duration + pause;
+      let repeatDelay = stagger * (targets.length - 1) + pause;
+
+      animation
+        .from(targets, {
+          y: 8,
+          duration: duration,
           opacity: 0,
-          duration: 0.1,
+          stagger: {
+            each: stagger,
+            repeat: -1,
+            repeatDelay: repeatDelay,
+          },
         })
-          .to(st, {
-            y: "5px",
-            duration: 0.5,
-          })
-          .to(st, {
-            opacity: 1,
-            ease: "power2.out",
-            duration: 0.5,
-            y: "0px",
-          })
-          .to(st, {
+        .to(
+          targets,
+          {
+            y: -8,
+            duration: duration,
             opacity: 0,
-            y: "-3px",
-            delay: 3.5,
-            ease: "power2.in",
-          });
-      });
+            stagger: {
+              each: stagger,
+              repeat: -1,
+              repeatDelay: repeatDelay,
+            },
+          },
+          stagger,
+        );
     });
 
-    // Cleanup
     return () => {
       ctx.revert();
     };
@@ -61,7 +69,6 @@ const WeatherWidget = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
       return data.current_weather;
     } catch (error) {
       console.error("Error fetching weather data:", error);
@@ -127,7 +134,7 @@ const WeatherWidget = () => {
   return (
     <div
       id="weather-widget"
-      className="flex justify-center items-center relative"
+      className="flex justify-center items-center relative overflow-hidden"
     >
       <div className="flex opacity-0" ref={st1}>
         <div className="mr-3 font-medium">AMS</div>
