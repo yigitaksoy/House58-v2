@@ -23,7 +23,7 @@ const WeatherWidget = () => {
       let tl = gsap.timeline({ repeat: -1 });
       sts.forEach((st) => {
         tl.to(st, {
-          y: "-5px",
+          y: "-3px",
           opacity: 0,
           duration: 0.1,
         })
@@ -33,15 +33,15 @@ const WeatherWidget = () => {
           })
           .to(st, {
             opacity: 1,
-            ease: "power3.out",
+            ease: "power2.out",
             duration: 0.5,
             y: "0px",
           })
           .to(st, {
             opacity: 0,
-            y: "-5px",
-            delay: 5,
-            ease: "power3.in",
+            y: "-3px",
+            delay: 3.5,
+            ease: "power2.in",
           });
       });
     });
