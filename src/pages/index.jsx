@@ -13,6 +13,12 @@ export default function Home() {
           name="description"
           content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
         />
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          crossOrigin="anonymous"
+        />
+
         <link rel="icon" href="/favicon.ico" />
         <script type="application/ld+json">
           {JSON.stringify({
