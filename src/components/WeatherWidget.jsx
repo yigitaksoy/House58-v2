@@ -11,8 +11,11 @@ const WeatherWidget = () => {
   const [amsterdamWeather, setAmsterdamWeather] = useState(null);
   const [berlinWeather, setBerlinWeather] = useState(null);
   const [newYorkWeather, setNewYorkWeather] = useState(null);
-  const [currentHours, setCurrentHours] = useState("");
-  const [currentMinutes, setCurrentMinutes] = useState("");
+  const [currentTime, setCurrentTime] = useState({
+    amsterdam: "",
+    berlin: "",
+    newYork: "",
+  });
   const st1 = useRef(null);
   const st2 = useRef(null);
   const st3 = useRef(null);
@@ -75,9 +78,10 @@ const WeatherWidget = () => {
     }
   };
 
-  const getTimeInTimeZone = (timeZone, type) => {
+  const getTimeInTimeZone = (timeZone) => {
     return new Intl.DateTimeFormat("en-US", {
-      [type]: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
       hour12: false,
       timeZone: timeZone,
     }).format(new Date());
@@ -104,22 +108,23 @@ const WeatherWidget = () => {
 
     fetchAllWeatherData();
 
-    const weatherIntervalId = setInterval(() => {
-      fetchAllWeatherData();
-    }, 900000);
+    // Update time for all cities
+    const updateTime = () => {
+      setCurrentTime({
+        amsterdam: getTimeInTimeZone("Europe/Amsterdam"),
+        berlin: getTimeInTimeZone("Europe/Berlin"),
+        newYork: getTimeInTimeZone("America/New_York"),
+      });
+    };
 
-    const intervalId = setInterval(() => {
-      setCurrentHours({
-        amsterdam: getTimeInTimeZone("Europe/Amsterdam", "hour"),
-        berlin: getTimeInTimeZone("Europe/Berlin", "hour"),
-        newYork: getTimeInTimeZone("America/New_York", "hour"),
-      });
-      setCurrentMinutes({
-        amsterdam: getTimeInTimeZone("Europe/Amsterdam", "minute"),
-        berlin: getTimeInTimeZone("Europe/Berlin", "minute"),
-        newYork: getTimeInTimeZone("America/New_York", "minute"),
-      });
-    }, 1000);
+    // Set initial time for all cities
+    updateTime();
+
+    // Set interval to update time every minute
+    const intervalId = setInterval(updateTime, 60000); // 1 minute
+
+    // Fetch weather data every 15 minutes
+    const weatherIntervalId = setInterval(fetchAllWeatherData, 900000);
 
     return () => {
       clearInterval(intervalId);
@@ -134,18 +139,14 @@ const WeatherWidget = () => {
   return (
     <div
       id="weather-widget"
-      className="flex justify-center items-center relative overflow-hidden"
+      className="flex justify-center items-center relative overflow-hidden w-auto"
     >
       <div className="flex opacity-0" ref={st1}>
         <div className="mr-3">AMS</div>
         {amsterdamWeather && (
           <>
             <div className="mr-3">{amsterdamWeather.temperature}°C</div>
-            <div className="mr-3">
-              {currentHours.amsterdam}
-              <span className="animate-pulse">:</span>
-              {currentMinutes.amsterdam}
-            </div>
+            <div className="mr-3">{currentTime.amsterdam}</div>
             <Image
               src={getWeatherIcon(
                 amsterdamWeather.weathercode,
@@ -162,11 +163,7 @@ const WeatherWidget = () => {
         {newYorkWeather && (
           <>
             <div className="mr-3">{newYorkWeather.temperature}°C</div>
-            <div className="mr-3">
-              {currentHours.newYork}
-              <span className="animate-pulse">:</span>
-              {currentMinutes.newYork}
-            </div>
+            <div className="mr-3">{currentTime.newYork}</div>
             <Image
               src={getWeatherIcon(
                 newYorkWeather.weathercode,
@@ -184,9 +181,9 @@ const WeatherWidget = () => {
           <>
             <div className="mr-3">{berlinWeather.temperature}°C</div>
             <div className="mr-3">
-              {currentHours.berlin}
-              <span className="animate-pulse">:</span>
-              {currentMinutes.berlin}
+              {currentTime.berlin}
+              {/* <span className="animate-pulse">:</span>
+              {currentMinutes.berlin} */}
             </div>
             <Image
               src={getWeatherIcon(
