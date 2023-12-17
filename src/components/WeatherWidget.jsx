@@ -141,8 +141,8 @@ const WeatherWidget = () => {
       id="weather-widget"
       className="flex justify-center items-center relative overflow-hidden w-auto"
     >
-      <div className="flex opacity-0" ref={st1}>
-        <div className="mr-3">AMS</div>
+      <div className="flex opacity-0 mr-4" ref={st1}>
+        <div className="mr-2">AMS</div>
         {amsterdamWeather && (
           <>
             <div className="mr-3">{amsterdamWeather.temperature}°C</div>
@@ -158,8 +158,8 @@ const WeatherWidget = () => {
           </>
         )}
       </div>
-      <div className="flex absolute opacity-0" ref={st2}>
-        <div className="mr-3">NYC</div>
+      <div className="flex absolute opacity-0 mr-4" ref={st2}>
+        <div className="mr-2">NYC</div>
         {newYorkWeather && (
           <>
             <div className="mr-3">{newYorkWeather.temperature}°C</div>
@@ -175,8 +175,8 @@ const WeatherWidget = () => {
           </>
         )}
       </div>
-      <div className="flex absolute opacity-0" ref={st3}>
-        <div className="mr-3">BER</div>
+      <div className="flex absolute opacity-0 mr-4" ref={st3}>
+        <div className="mr-2">BER</div>
         {berlinWeather && (
           <>
             <div className="mr-3">{berlinWeather.temperature}°C</div>
