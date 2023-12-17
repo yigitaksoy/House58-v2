@@ -180,11 +180,7 @@ const WeatherWidget = () => {
         {berlinWeather && (
           <>
             <div className="mr-3">{berlinWeather.temperature}°C</div>
-            <div className="mr-3">
-              {currentTime.berlin}
-              {/* <span className="animate-pulse">:</span>
-              {currentMinutes.berlin} */}
-            </div>
+            <div className="mr-3">{currentTime.berlin}</div>
             <Image
               src={getWeatherIcon(
                 berlinWeather.weathercode,
