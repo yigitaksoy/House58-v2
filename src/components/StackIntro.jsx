@@ -32,7 +32,7 @@ export default function StackIntro({
         </h1>
         <div
           className={clsx(
-            "mt-6 max-w-xl text-2xl text-house-black font-heavy",
+            "mt-6 max-w-xl text-2xl text-house-500 font-heavy",
             centered && "mx-auto",
           )}
         >

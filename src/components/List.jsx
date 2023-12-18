@@ -19,7 +19,7 @@ export function ListItem({ title, children }) {
       <FadeIn>
         <Border className="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden">
           {title && (
-            <strong className="font-black text-house-black">{`${title}. `}</strong>
+            <strong className="font-black text-house-500">{`${title}. `}</strong>
           )}
           {children}
         </Border>

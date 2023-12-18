@@ -74,7 +74,7 @@ const Services = () => {
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               Your digital handshake starts with your website—it's where first
               impressions are formed. At{" "}
-              <span className="text-house-black font-heavy">House 58</span>, we
+              <span className="text-house-500 font-heavy">House 58</span>, we
               create custom web solutions using latest tools and frameworks that
               resonate with your audience, ensuring a cohesive journey from
               UI/UX design to full-scale development and support.
@@ -92,8 +92,8 @@ const Services = () => {
               you need to succeed.
             </ListItem>
             <ListItem title="Website Maintanence">
-              At <span className="text-house-black font-heavy">House 58</span>,
-              we handle the technicalities so you can focus on your business
+              At <span className="text-house-500 font-heavy">House 58</span>, we
+              handle the technicalities so you can focus on your business
               growth. We ensure your site is always secure, fast, and reliable,
               while keeping your content fresh and up-to-date.
             </ListItem>
