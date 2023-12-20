@@ -25,7 +25,10 @@ const Footer = () => {
   };
 
   return (
-    <footer id="footer" className="h-[70vh] bg-[#b2ff44]">
+    <footer
+      id="footer"
+      className="h-[70vh] bg-gradient-to-r from-[#2BFF8C] via-[#587AE9] to-[#E9ABFF] text-black"
+    >
       <div className="border-t-4 border-house-black"></div>
       <div className="absolute bottom-0 w-full">
         <div className="border-t border-house-black bg-house-black pb-12 xl:pb-20">
@@ -57,7 +60,7 @@ const Footer = () => {
                   </a>
                 </Magnetic>
               </div>
-              <div className="order-2 inline-flex text-sm font-thin text-house-whitewarm xl:mt-0 mt-8 items-center justify-center">
+              <div className="order-2 inline-flex text-sm font-thin text-house-whitewarm lg:mt-0 mt-8 items-center justify-center">
                 <WeatherWidget />
               </div>
               <div className="order-1 mb-8 flex flex-row gap-6 xl:order-2 xl:mb-0 xl:flex items-center justify-center">
