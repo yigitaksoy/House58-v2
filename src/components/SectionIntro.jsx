@@ -5,6 +5,7 @@ import { FadeIn } from "@/components/FadeIn";
 export function SectionIntro({
   eyebrow,
   title,
+  children,
   hollow,
   smaller = false,
   invert = false,
@@ -41,6 +42,16 @@ export function SectionIntro({
             {title}
           </span>
         </h2>
+        {children && (
+          <div
+            className={clsx(
+              "mt-6 text-xl",
+              invert ? "text-neutral-300" : "text-neutral-600",
+            )}
+          >
+            {children}
+          </div>
+        )}
       </FadeIn>
     </Container>
   );
