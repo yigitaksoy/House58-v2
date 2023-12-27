@@ -8,6 +8,7 @@ export const data = [
     sectionId: "web-design",
     title: "Web Design",
     image: webDesignImg,
+    alt: "Custom Web Design Solutions by House 58 for engaging user experiences.",
     paragraph1:
       "At House 58, we understand that a website is the digital face of your business, setting the stage for customer interaction and brand perception. Our web design services begin with a deep understanding of your business goals and audience needs. We leverage cutting-edge tools and frameworks to ensure your website not only looks stunning but also functions flawlessly.",
     paragraph2:
@@ -29,6 +30,7 @@ export const data = [
     sectionId: "web-development",
     title: "Web Development",
     image: webDevImg,
+    alt: "Innovative Web Development Solutions by House 58.",
     paragraph1:
       "In the dynamic world of web development, House 58 offers comprehensive services tailored to your business's digital challenges. We specialize in building web applications that are not only robust and high-performing but also adept at solving complex problems. Our focus is on ensuring your digital solutions function seamlessly, delivering performance that elevates your brand and meets your audience's needs.",
     paragraph2:
@@ -50,6 +52,7 @@ export const data = [
     sectionId: "e-commerce",
     title: "E-commerce",
     image: ecommImg,
+    alt: "Tailored E-commerce Platforms by House 58 for modern retail.",
     paragraph1:
       "House 58 delivers tailored e-commerce solutions for every scale of online retail, from small boutique stores to large-scale platforms and membership sites with recurring billing. Specializing in both custom shopping cart platforms and popular systems like WooCommerce and Shopify, we ensure seamless, efficient shopping experiences.",
     paragraph2:
@@ -71,6 +74,7 @@ export const data = [
     sectionId: "website-maintenance",
     title: "Website Maintenance",
     image: maintImg,
+    alt: "Comprehensive Website Maintenance Services by House 58 for performance.",
     paragraph1:
       "House 58 ensures your website is reliable, secure, and fast, supporting your business growth. Our Website Maintenance services include regular updates, content refreshes, security checks, and optimizations for peak performance. We're dedicated to keeping your site up-to-date and running smoothly.",
     paragraph2:
