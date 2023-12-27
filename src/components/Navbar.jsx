@@ -123,7 +123,12 @@ const Navbar = () => {
         role="navigation"
       >
         <Link href="/" aria-label="Home" onClick={handleLogoClick}>
-          <Image src={Logo} alt="Company logo" className="w-36 h-auto" />
+          <Image
+            src={Logo}
+            priority
+            alt="Company logo"
+            className="w-36 h-auto"
+          />
         </Link>
         <div className="flex gap-6 lg:gap-20 text-md">
           <Magnetic>
