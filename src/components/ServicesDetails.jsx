@@ -30,7 +30,7 @@ const ServicesDetails = () => {
             ease: "none",
             scrollTrigger: {
               trigger: animateTitle,
-              start: "top 45%",
+              start: "top 50%",
               end: "bottom 40%",
               onEnter: () => gsap.to(animateTitle, { opacity: 1 }),
               onEnterBack: () => gsap.to(animateTitle, { opacity: 1 }),
