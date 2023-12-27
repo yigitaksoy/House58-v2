@@ -5,6 +5,7 @@ import maintImg from "@/images/website-maintenance.png";
 export const data = [
   {
     id: 1,
+    sectionId: "web-design",
     title: "Web Design",
     image: webDesignImg,
     paragraph1:
@@ -12,7 +13,7 @@ export const data = [
     paragraph2:
       "We focus on creating intuitive user interfaces, integrating engaging content, and optimizing for mobile responsiveness and SEO, ensuring that your website stands out in today's competitive digital landscape. We prioritize user experience, creating websites that are easy to navigate and visually appealing.",
     paragraph3:
-      "Dedicated to fostering business growth and digital interaction, our services are tailored to meet your unique requirements. With a deep understanding of WordPress and custom web solutions, we ensure your web presence is not just contemporary but also robust and adaptable, serving as a dynamic engine for your brand's ongoing growth.",
+      "Dedicated to fostering business growth and digital interaction, our services are tailored to meet your unique requirements. With a deep understanding of custom web solutions and WordPress, we ensure your web presence is not just contemporary but also robust and adaptable, serving as a dynamic engine for your brand's ongoing growth.",
     tags: [
       "Redesigns",
       "Frontend",
@@ -25,6 +26,7 @@ export const data = [
   },
   {
     id: 2,
+    sectionId: "web-development",
     title: "Web Development",
     image: webDevImg,
     paragraph1:
@@ -45,6 +47,7 @@ export const data = [
   },
   {
     id: 3,
+    sectionId: "e-commerce",
     title: "E-commerce",
     image: ecommImg,
     paragraph1:
@@ -65,6 +68,7 @@ export const data = [
   },
   {
     id: 4,
+    sectionId: "website-maintenance",
     title: "Website Maintenance",
     image: maintImg,
     paragraph1:
