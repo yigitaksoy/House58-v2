@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Section from "@/components/Section";
+import ServiceFeature from "./ServiceFeature";
 import { TagList, TagListItem } from "@/components/TagList";
 import { data as services } from "@/data/services";
 
@@ -89,11 +89,11 @@ const ServicesDetails = () => {
       </div>
 
       {services.map((service) => (
-        <Section
+        <ServiceFeature
           key={service.id}
+          sectionId={service.sectionId}
           title={service.title}
           image={{ src: service.image }}
-          className="h-screen"
         >
           <div className="space-y-6 text-base text-neutral-300">
             <p>{renderParagraph(service.paragraph1)}</p>
@@ -106,7 +106,7 @@ const ServicesDetails = () => {
               <TagListItem key={tag}>{tag}</TagListItem>
             ))}
           </TagList>
-        </Section>
+        </ServiceFeature>
       ))}
     </section>
   );
