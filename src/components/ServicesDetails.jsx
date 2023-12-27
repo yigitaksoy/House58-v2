@@ -94,6 +94,7 @@ const ServicesDetails = () => {
           sectionId={service.sectionId}
           title={service.title}
           image={{ src: service.image }}
+          alt={service.alt}
         >
           <div className="space-y-6 text-base text-neutral-300">
             <p>{renderParagraph(service.paragraph1)}</p>

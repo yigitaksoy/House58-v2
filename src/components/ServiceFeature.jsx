@@ -7,7 +7,7 @@ import { StylizedImage } from "@/components/StylizedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ServiceFeature = ({ title, children, sectionId, image }) => {
+const ServiceFeature = ({ title, children, sectionId, alt, image }) => {
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let animateSection = gsap.utils.toArray(".animate-section");
@@ -50,6 +50,7 @@ const ServiceFeature = ({ title, children, sectionId, image }) => {
             <div className="w-[33.75rem] flex-none lg:w-[40rem]">
               <StylizedImage
                 {...image}
+                alt={alt}
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end lg:group-even/section:justify-start opacity-80"
               />
