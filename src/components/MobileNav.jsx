@@ -241,6 +241,7 @@ const MobileNav = () => {
         </Link>
         <div
           role="button"
+          aria-label="Toggle navigation"
           tabIndex="0"
           className={`w-16 h-16 bg-house-black rounded relative cursor-pointer grid place-items-center transition duration-300 pointer-events-auto ${
             open ? "bg-house-black hover:none" : "hover:bg-none"
