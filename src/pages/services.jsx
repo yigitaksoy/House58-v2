@@ -3,6 +3,7 @@
 import Head from "next/head";
 import ServicesDetails from "@/components/ServicesDetails";
 import ServicesIntro from "@/components/ServicesIntro";
+import Calendar from "@/components/Calendar";
 
 const services = () => {
   return (
@@ -42,6 +43,7 @@ const services = () => {
       <div id="services">
         <ServicesIntro />
         <ServicesDetails />
+        <Calendar />
       </div>
     </>
   );
