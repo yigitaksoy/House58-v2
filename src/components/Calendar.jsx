@@ -74,7 +74,7 @@ export default function Calendar() {
         className="z-[999999999999] fixed md:bottom-4 bottom-4 md:right-6 right-4 flex h-11 bg-house-bluelight font-objektiv transform cursor-pointer items-center text-sm rounded-full py-5 px-6 drop-shadow-lg transition duration-300 hover:bg-house-black hover:text-white book-a-call"
       >
         <CiCalendar className="mr-2 h-5 w-5" />
-        Book a call
+        Schedule a call
       </button>
     </div>
   );
