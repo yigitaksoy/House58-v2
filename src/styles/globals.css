@@ -73,11 +73,17 @@ main {
 
 .hollow-eyebrow {
   color: transparent;
-  -webkit-text-stroke: 1.25px #282726;
+  -webkit-text-stroke: 1.25px #3f3f46;
 }
 
 .blur {
   filter: blur(0.2vw);
+}
+
+/*  Calendar Widget */
+
+.book-a-call {
+  opacity: 0;
 }
 
 /*  Footer  */
