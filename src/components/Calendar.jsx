@@ -6,7 +6,6 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { getCalApi } from "@calcom/embed-react";
 import { CiCalendar } from "react-icons/ci";
-import { LuCalendarDays } from "react-icons/lu";
 
 gsap.registerPlugin(ScrollTrigger);
 
