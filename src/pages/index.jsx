@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import TechStack from "@/components/TechStack";
 import Calendar from "@/components/Calendar";
+import OurProcess from "@/components/OurProcess";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
       <Hero />
       <Services />
       <TechStack />
+      <OurProcess dark className="mt-20 mb-10" />
       <Calendar />
     </>
   );
