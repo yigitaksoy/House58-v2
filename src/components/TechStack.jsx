@@ -1,3 +1,7 @@
+import { useRef } from "react";
+import { useIsomorphicLayoutEffect } from "framer-motion";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
@@ -12,6 +16,8 @@ import logoWoocommerce from "@/images/logos/woocommerce.svg";
 import logoWordpress from "@/images/logos/wordpress.svg";
 import logoGA from "@/images/logos/google_analytics.svg";
 import logoGtm from "@/images/logos/gtm.svg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const techStack = [
   { img: logoAws, alt: "AWS logo", width: 110 },
@@ -35,8 +41,32 @@ const techStack = [
 ];
 
 export default function TechStack() {
+  const stackRef = useRef();
+
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.set(stackRef.current, { opacity: 1 });
+
+      gsap.to(stackRef.current, {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: stackRef.current,
+          start: "bottom 30%",
+          end: "top 40%",
+          reverse: true,
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    // Cleanup
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={stackRef}
       id="tech-stack"
       className="relative isolate bg-house-whitewarm py-16 sm:py-28 md:py-32"
     >
