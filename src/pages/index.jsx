@@ -40,7 +40,7 @@ export default function Home() {
       <Hero />
       <Services />
       <TechStack />
-      <OurProcess dark className="mt-20 mb-10" />
+      <OurProcess dark className="mt-32 md:mt-20 mb-10" />
       <Calendar />
     </>
   );
