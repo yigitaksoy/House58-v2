@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
@@ -35,7 +34,7 @@ const techStack = [
   { img: logoGtm, alt: "Google Tag Manager logo", width: 110 },
 ];
 
-export default function TechStack({ centered = false }) {
+export default function TechStack() {
   return (
     <section
       id="tech-stack"
@@ -48,9 +47,6 @@ export default function TechStack({ centered = false }) {
             your business objectives.
           </p>
         </StackIntro>
-        <Container
-          className={clsx("mt-4 sm:mt-2 lg:mt-4", centered && "text-center")}
-        ></Container>
       </FadeIn>
       <Container>
         <FadeInStagger faster>
