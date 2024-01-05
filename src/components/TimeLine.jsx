@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -6,8 +9,51 @@ import { Container } from "./Container";
 gsap.registerPlugin(ScrollTrigger);
 
 const TimeLine = () => {
+  const timelineRef = useRef(null);
+
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
+      let timelineContainer = timelineRef.current;
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 800px)", () => {
+        gsap.fromTo(
+          timelineContainer,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: timelineContainer,
+              start: "top 60%",
+              end: "bottom 30%",
+              onEnter: () => gsap.to(timelineContainer, { opacity: 1 }),
+              onEnterBack: () => gsap.to(timelineContainer, { opacity: 1 }),
+              onLeaveBack: () => gsap.to(timelineContainer, { opacity: 0 }),
+            },
+          },
+        );
+      });
+
+      mm.add("(max-width: 799px)", () => {
+        gsap.fromTo(
+          timelineContainer,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: timelineContainer,
+              start: "top 70%",
+              end: "bottom 30%",
+              onEnter: () => gsap.to(timelineContainer, { opacity: 1 }),
+              onEnterBack: () => gsap.to(timelineContainer, { opacity: 1 }),
+              onLeaveBack: () => gsap.to(timelineContainer, { opacity: 0 }),
+            },
+          },
+        );
+      });
+
       gsap.to(".draw-line", {
         height: () =>
           document.querySelector(".timeline-container").offsetHeight,
@@ -55,7 +101,10 @@ const TimeLine = () => {
   }, []);
   return (
     <Container>
-      <div className="relative grid grid-cols-4 grid-rows-4 md:gap-10 gap-2 mt-20 timeline-container">
+      <div
+        ref={timelineRef}
+        className="relative grid grid-cols-4 grid-rows-4 md:gap-10 gap-2 mt-20 timeline-container"
+      >
         <span className="absolute left-1/2 transform -translate-x-1/2 w-2 bg-[#3f3f46] h-full rounded-lg z-0"></span>
         <span className="absolute left-1/2 transform -translate-x-1/2 w-2 bg-[#e0a4ff] rounded-lg h-0 draw-line z-10"></span>
         <div className="col-span-2 md:flex min-h-[30vh] gap-x-8 gap-y-8 timeline">
