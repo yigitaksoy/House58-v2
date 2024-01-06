@@ -4,6 +4,7 @@ import Head from "next/head";
 import ServicesDetails from "@/components/ServicesDetails";
 import ServicesIntro from "@/components/ServicesIntro";
 import Calendar from "@/components/Calendar";
+import OurProcess from "@/components/OurProcess";
 
 const services = () => {
   return (
@@ -43,6 +44,7 @@ const services = () => {
       <div id="services">
         <ServicesIntro />
         <ServicesDetails />
+        <OurProcess dark className="mt-20 md:mt-24 mb-10" />
         <Calendar />
       </div>
     </>
