@@ -1,14 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { Container } from "@/components/Container";
-import { FadeIn } from "./FadeIn";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
-
-gsap.registerPlugin(ScrollTrigger);
+import { Container } from "@/components/Container";
+import { FadeIn } from "./FadeIn";
 
 const texts = [
   [
@@ -35,28 +33,29 @@ const ServicesIntro = () => {
   const main = useRef();
   const h1Ref = useRef();
 
-  useIsomorphicLayoutEffect(() => {
-    const moveText = (event) => {
-      const { clientX, clientY } = event;
-      const { left, top, width, height } = main.current.getBoundingClientRect();
-      const x = ((clientX - left - width / 2) / width) * 8;
-      const y = ((clientY - top - height / 2) / height) * 15;
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to([h1Ref.current], {
-        x,
-        y,
-        duration: 0.5,
-        ease: "power1.out",
-      });
-    };
+      const moveText = (event) => {
+        const { clientX, clientY } = event;
+        const { left, top, width, height } =
+          main.current.getBoundingClientRect();
+        const x = ((clientX - left - width / 2) / width) * 8;
+        const y = ((clientY - top - height / 2) / height) * 15;
 
-    // Create a GSAP context
-    let ctx = gsap.context(() => {
+        gsap.to([h1Ref.current], {
+          x,
+          y,
+          duration: 0.5,
+          ease: "power1.out",
+        });
+      };
+
+      let mm = gsap.matchMedia();
       let animate = gsap.utils.selector(main.current)(".animate");
       let animateTitle = gsap.utils.selector(main.current)(".animate-title");
-      let mm = gsap.matchMedia();
 
-      // Media query for screens wider than 800px
       mm.add("(min-width: 800px)", () => {
         gsap.to(animate, {
           y: -50,
@@ -108,18 +107,16 @@ const ServicesIntro = () => {
           },
         });
       });
-    }, main.current);
 
-    ctx.add("moveText", moveText);
+      main.current.addEventListener("mousemove", moveText);
 
-    main.current.addEventListener("mousemove", (e) => ctx.moveText(e));
-
-    // Cleanup
-    return () => {
-      ctx.revert();
-      main.current.removeEventListener("mousemove", moveText);
-    };
-  }, []);
+      return () => {
+        mm.revert();
+        main.current.removeEventListener("mousemove", moveText);
+      };
+    },
+    { scope: main },
+  );
 
   return (
     <section id="services-intro" className="h-auto" ref={main}>

@@ -1,39 +1,39 @@
 "use client";
 
 import { useRef } from "react";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const main = useRef();
   const h1Ref = useRef();
   const pRef = useRef();
 
-  useIsomorphicLayoutEffect(() => {
-    const moveText = (event) => {
-      const { clientX, clientY } = event;
-      const { left, top, width, height } = main.current.getBoundingClientRect();
-      const x = ((clientX - left - width / 2) / width) * 8;
-      const y = ((clientY - top - height / 2) / height) * 15;
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to([h1Ref.current, pRef.current], {
-        x,
-        y,
-        duration: 0.5,
-        ease: "power1.out",
-      });
-    };
+      const moveText = (event) => {
+        const { clientX, clientY } = event;
+        const { left, top, width, height } =
+          main.current.getBoundingClientRect();
+        const x = ((clientX - left - width / 2) / width) * 8;
+        const y = ((clientY - top - height / 2) / height) * 15;
 
-    let ctx = gsap.context(() => {
-      let animate = gsap.utils.selector(main.current)(".animate");
+        gsap.to([h1Ref.current, pRef.current], {
+          x,
+          y,
+          duration: 0.5,
+          ease: "power1.out",
+        });
+      };
+
       let mm = gsap.matchMedia();
+      let animate = gsap.utils.selector(main.current)(".animate");
 
-      // Desktop animations
       mm.add("(min-width: 800px)", () => {
         gsap.to(animate, {
           y: -50,
@@ -48,7 +48,6 @@ const Hero = () => {
         });
       });
 
-      // Mobile animations
       mm.add("(max-width: 799px)", () => {
         gsap.to(animate, {
           opacity: 0,
@@ -63,18 +62,16 @@ const Hero = () => {
           },
         });
       });
-    }, main.current);
 
-    ctx.add("moveText", moveText);
+      main.current.addEventListener("mousemove", moveText);
 
-    main.current.addEventListener("mousemove", (e) => ctx.moveText(e));
-
-    // Cleanup
-    return () => {
-      ctx.revert();
-      main.current.removeEventListener("mousemove", moveText);
-    };
-  }, []);
+      return () => {
+        mm.revert();
+        main.current.removeEventListener("mousemove", moveText);
+      };
+    },
+    { scope: main },
+  );
 
   return (
     <section id="hero" className="h-screen" ref={main}>

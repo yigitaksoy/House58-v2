@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { SectionIntro } from "../components/SectionIntro";
@@ -9,43 +9,46 @@ import { List, ListItem } from "@/components/List";
 import { StylizedImage } from "@/components/StylizedImage";
 import servicesImg from "@/images/services.png";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Services = () => {
   const servicesRef = useRef();
   const titleRef = useRef();
 
-  useIsomorphicLayoutEffect(() => {
-    gsap.to(servicesRef.current, {
-      backgroundColor: "#f2efeb",
-      ease: "none",
-      scrollTrigger: {
-        trigger: servicesRef.current,
-        start: "top 60%",
-        end: "top 60%",
-        reverse: true,
-        toggleActions: "play none none reverse",
-      },
-    });
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(titleRef.current, {
-      opacity: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: servicesRef.current,
-        start: "top 60%",
-        end: "top 60%",
-        reverse: true,
-        onEnter: () => gsap.to(titleRef.current, { opacity: 1 }),
-        onLeaveBack: () => gsap.to(titleRef.current, { opacity: 0 }),
-      },
-    });
+      gsap.to(servicesRef.current, {
+        backgroundColor: "#f2efeb",
+        ease: "none",
+        scrollTrigger: {
+          trigger: servicesRef.current,
+          start: "top 60%",
+          end: "top 60%",
+          reverse: true,
+          toggleActions: "play none none reverse",
+        },
+      });
 
-    return () => {
-      // Clean up the ScrollTrigger instances
-      ScrollTrigger.getAll().forEach((instance) => instance.kill());
-    };
-  }, []);
+      gsap.to(titleRef.current, {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: servicesRef.current,
+          start: "top 60%",
+          end: "top 60%",
+          reverse: true,
+          onEnter: () => gsap.to(titleRef.current, { opacity: 1 }),
+          onLeaveBack: () => gsap.to(titleRef.current, { opacity: 0 }),
+        },
+      });
+
+      return () => {
+        ScrollTrigger.getAll().forEach((instance) => instance.kill());
+      };
+    },
+    { scope: servicesRef },
+  );
+
   return (
     <section ref={servicesRef} id="services" aria-labelledby="services-heading">
       <div ref={titleRef}>

@@ -2,18 +2,18 @@
 
 import { useRef } from "react";
 import clsx from "clsx";
-import { useIsomorphicLayoutEffect } from "framer-motion";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import TimeLine from "./TimeLine";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const OurProcess = ({ className }) => {
   const sectionRef = useRef(null);
 
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+
       let animateTitle = gsap.utils.selector(sectionRef.current)(
         ".animate-title",
       );
@@ -44,7 +44,7 @@ const OurProcess = ({ className }) => {
         });
       });
 
-      mm.add("(max-width: 768px)", () => {
+      mm.add("(max-width: 799px)", () => {
         animateTitle.forEach((section) => {
           gsap.fromTo(
             section,
@@ -67,10 +67,11 @@ const OurProcess = ({ className }) => {
           );
         });
       });
-    });
 
-    return () => ctx.revert();
-  }, []);
+      return () => mm.revert();
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section

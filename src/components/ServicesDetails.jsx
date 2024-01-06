@@ -1,20 +1,20 @@
 "use-client";
 
 import { useRef } from "react";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import ServiceFeature from "./ServiceFeature";
 import { TagList, TagListItem } from "@/components/TagList";
 import { data as services } from "@/data/services";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const ServicesDetails = () => {
   const sectionRef = useRef();
 
-  useIsomorphicLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+
       let animateTitle = gsap.utils.selector(sectionRef.current)(
         ".animate-title",
       );
@@ -57,11 +57,11 @@ const ServicesDetails = () => {
           },
         );
       });
-    });
 
-    // Cleanup
-    return () => ctx.revert();
-  }, []);
+      return () => mm.revert();
+    },
+    { scope: sectionRef },
+  );
 
   const renderParagraph = (text) => {
     const parts = text.split(/(House 58)/);
