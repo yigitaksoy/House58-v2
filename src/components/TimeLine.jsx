@@ -1,18 +1,18 @@
 "use client";
 
 import { useRef } from "react";
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Container } from "./Container";
-
-gsap.registerPlugin(ScrollTrigger);
+import { Container } from "@/components/Container";
 
 const TimeLine = () => {
   const timelineRef = useRef(null);
 
-  useIsomorphicLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+
       let timelineContainer = timelineRef.current;
       let mm = gsap.matchMedia();
 
@@ -94,11 +94,12 @@ const TimeLine = () => {
           },
         });
       });
-    });
 
-    // Cleanup
-    return () => ctx.revert();
-  }, []);
+      // Cleanup
+      return () => mm.revert();
+    },
+    { scope: timelineRef },
+  );
   return (
     <Container>
       <div
