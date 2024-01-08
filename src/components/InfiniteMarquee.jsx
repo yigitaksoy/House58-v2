@@ -17,7 +17,7 @@ const InfiniteMarquee = ({ texts, className, hollow }) => {
     marqueesRef.current.forEach((marquee, i) => {
       horizontalLoop(marquee.querySelectorAll(".word"), {
         repeat: -1,
-        speed: 1,
+        speed: 0.5,
         paddingRight: 16,
         reversed: i % 2 === 0,
       });
