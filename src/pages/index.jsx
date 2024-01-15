@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import TechStack from "@/components/TechStack";
 import Calendar from "@/components/Calendar";
 import OurProcess from "@/components/OurProcess";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
       <Services />
       <TechStack />
       <OurProcess dark className="mt-32 md:mt-20 mb-10" />
+      <Faq />
       <Calendar />
     </>
   );
