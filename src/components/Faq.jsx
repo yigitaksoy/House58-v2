@@ -11,7 +11,6 @@ import { faqList } from "@/data/faqList";
 const Faq = () => {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
-  const h1Ref = useRef(null);
   const leftSection = useRef(null);
   const rightSection = useRef(null);
 
