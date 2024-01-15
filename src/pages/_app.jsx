@@ -8,7 +8,7 @@ function App({ Component, pageProps }) {
       <header className="sticky top-0 z-50">
         <Navbar />
       </header>
-      <main className="relative isolate flex w-full flex-col bg-house-black   overflow-hidden">
+      <main className="relative isolate flex w-full flex-col bg-house-black lg:overflow-visible overflow-hidden">
         <Component {...pageProps} />
       </main>
       <footer>
