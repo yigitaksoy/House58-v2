@@ -5,6 +5,7 @@ import ServicesDetails from "@/components/ServicesDetails";
 import ServicesIntro from "@/components/ServicesIntro";
 import Calendar from "@/components/Calendar";
 import OurProcess from "@/components/OurProcess";
+import Faq from "@/components/Faq";
 
 const services = () => {
   return (
@@ -41,12 +42,11 @@ const services = () => {
           })}
         </script>
       </Head>
-      <div id="services">
-        <ServicesIntro />
-        <ServicesDetails />
-        <OurProcess dark className="mt-20 md:mt-24 mb-10" />
-        <Calendar />
-      </div>
+      <ServicesIntro />
+      <ServicesDetails />
+      <OurProcess dark className="mt-20 md:mt-24 mb-10" />
+      <Faq />
+      <Calendar />
     </>
   );
 };
