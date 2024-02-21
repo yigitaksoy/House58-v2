@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -7,7 +8,9 @@ import { FadeIn } from "@/components/FadeIn";
 import { SectionIntro } from "../components/SectionIntro";
 import { List, ListItem } from "@/components/List";
 import { StylizedImage } from "@/components/StylizedImage";
+import Magnetic from "@/components/Magnetic";
 import servicesImg from "@/images/services.png";
+import { GoArrowUpRight } from "react-icons/go";
 
 const Services = () => {
   const servicesRef = useRef();
@@ -18,7 +21,7 @@ const Services = () => {
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to(servicesRef.current, {
-        backgroundColor: "#f2efeb",
+        backgroundColor: "#ffff",
         ease: "none",
         scrollTrigger: {
           trigger: servicesRef.current,
@@ -101,6 +104,20 @@ const Services = () => {
               while keeping your content fresh and up-to-date.
             </ListItem>
           </List>
+        </div>
+        <div className="flex justify-end mt-16">
+          <Magnetic>
+            <Link href="/services">
+              <button
+                type="button"
+                form=""
+                class="border-[1.5px] border-house-500 px-6 py-2 flex flex-row text-lg mt-5 font-heavy items-center gap-2 text-house-500 hover:bg-oxfordBlue hover:bg-house-500 hover:text-white transition-all duration-300 ease-in-out self-start"
+              >
+                Go to services
+                <GoArrowUpRight className="text-3xl" />
+              </button>
+            </Link>
+          </Magnetic>
         </div>
       </Container>
     </section>
