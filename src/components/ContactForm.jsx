@@ -92,6 +92,19 @@ const ContactForm = () => {
                   border: "1px solid black",
                   borderRadius: "8px",
                 }),
+                option: (base, { isHovered, isFocused, isSelected }) => ({
+                  ...base,
+                  backgroundColor:
+                    isFocused || isHovered || isSelected
+                      ? "black"
+                      : "transparent",
+                  color:
+                    isFocused || isHovered || isSelected ? "white" : "black",
+                  "&:hover": {
+                    backgroundColor: "black",
+                    color: "white",
+                  },
+                }),
                 multiValue: (base) => ({
                   ...base,
                   backgroundColor: "black",
@@ -115,12 +128,7 @@ const ContactForm = () => {
               }}
               theme={(theme) => ({
                 ...theme,
-                borderRadius: "1",
-                colors: {
-                  ...theme.colors,
-                  primary25: "#7dd3fc",
-                  primary: "black",
-                },
+                borderRadius: "5",
               })}
               required
             />
