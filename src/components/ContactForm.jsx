@@ -1,11 +1,12 @@
 import { useId } from "react";
+import Select from "react-select";
 import { FadeIn } from "@/components/FadeIn";
 
 function TextInput({ label, ...props }) {
   let id = useId();
 
   return (
-    <div className="group relative z-0 transition-all focus-within:z-10 py-3">
+    <div className="group relative z-0 transition-all focus-within:z-10 py-2">
       <input
         type="text"
         id={id}
@@ -24,6 +25,15 @@ function TextInput({ label, ...props }) {
 }
 
 const ContactForm = () => {
+  const options = [
+    { value: "web-design", label: "Web Design" },
+    { value: "web-development", label: "Web Development" },
+    { value: "ecommerce", label: "E-commerce" },
+    { value: "maintanence", label: "Maintanence" },
+    { value: "collaboration", label: "Collaboration" },
+    { value: "other", label: "Other" },
+  ];
+
   return (
     <FadeIn>
       <div className="w-full md:px-4">
@@ -53,6 +63,67 @@ const ContactForm = () => {
               name="company"
               autoComplete="organization"
             />
+            <Select
+              options={options}
+              isSearchable={false}
+              placeholder="Services *"
+              classNames={{
+                control: () => "p-3 text-md rounded-xl my-1.5",
+              }}
+              styles={{
+                input: (base) => ({
+                  ...base,
+                  "input:focus": {
+                    boxShadow: "none",
+                  },
+                }),
+                control: (base, state) => ({
+                  ...base,
+                  border: state.isFocused
+                    ? "1px solid #7dd3fc"
+                    : "1px solid black",
+                  boxShadow: state.isFocused ? "0px 0px .5px #7dd3fc" : "none",
+                  "&:hover": {
+                    border: "1px solid black",
+                  },
+                }),
+                menu: (base) => ({
+                  ...base,
+                  border: "1px solid black",
+                  borderRadius: "8px",
+                }),
+                multiValue: (base) => ({
+                  ...base,
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "5px",
+                  fontWeight: "700",
+                }),
+                multiValueLabel: (base) => ({
+                  ...base,
+                  color: "white",
+                }),
+                multiValueRemove: (styles, { data }) => ({
+                  ...styles,
+                  color: data.color,
+                  ":hover": {
+                    backgroundColor: "#e0a4ff",
+                    color: "black",
+                    borderRadius: "0px 5px 5px 0px",
+                  },
+                }),
+              }}
+              theme={(theme) => ({
+                ...theme,
+                borderRadius: "1",
+                colors: {
+                  ...theme.colors,
+                  primary25: "#7dd3fc",
+                  primary: "black",
+                },
+              })}
+              required
+            />
             <div className="group relative z-0 transition-all focus-within:z-10 py-3">
               <textarea
                 required
@@ -66,7 +137,7 @@ const ContactForm = () => {
                 htmlFor="message"
                 className="pointer-events-none absolute left-6 top-1/2 -mt-9 origin-left text-base/6 text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
               >
-                Message *
+                How can we help you? *
               </label>
             </div>
             <button
