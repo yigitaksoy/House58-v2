@@ -12,7 +12,7 @@ function TextInput({ label, ...props }) {
         id={id}
         {...props}
         placeholder=" "
-        className="peer block w-full border border-house-dim rounded-xl bg-transparent px-6 pb-4 md:pt-6 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
+        className="peer block w-full border border-house-dim rounded-xl bg-transparent px-6 pb-4 md:pt-5 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
       />
       <label
         htmlFor={id}
