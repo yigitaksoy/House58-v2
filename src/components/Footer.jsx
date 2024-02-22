@@ -27,9 +27,8 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="h-[70vh] bg-gradient-to-r from-[#2BFF8C] via-[#587AE9] to-[#E9ABFF] text-black"
+      className="lg:h-[195px] h-[315px] bg-gradient-to-r from-[#2BFF8C] via-[#587AE9] to-[#E9ABFF] text-black"
     >
-      <div className="border-t-4 border-house-black"></div>
       <div className="absolute bottom-0 w-full">
         <div className="border-t border-house-black bg-house-black pb-12 xl:pb-20">
           <div className="mx-auto max-w-screen-section px-4 sm:px-8 lg:px-24 lg:text-left">
@@ -99,8 +98,8 @@ const Footer = () => {
                 </Magnetic>
                 <Magnetic>
                   <Link
-                    href="/"
-                    onClick={(e) => handleRouteClick(e, "/")}
+                    href="/contact"
+                    onClick={(e) => handleRouteClick(e, "/contact")}
                     className="group"
                   >
                     <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] font-thin text-sm">
