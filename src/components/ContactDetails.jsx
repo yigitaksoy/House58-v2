@@ -1,6 +1,7 @@
 import { FadeIn } from "@/components/FadeIn";
 import { Border } from "@/components/Border";
 import { SiLinkedin } from "react-icons/si";
+import { RxCalendar } from "react-icons/rx";
 
 export const ContactDetails = () => {
   return (
@@ -15,25 +16,63 @@ export const ContactDetails = () => {
             calendar and we&rsquo;ll see you soon!{" "}
           </p>
           <p className="text-lg text-house-bluelight mt-10 font-bold">
-            Schedule a call for
+            Schedule a call
           </p>
-          <div className="mt-2 grid grid-cols-2 text-sm">
-            <div className="mt-5">
+          <div className="mt-2 grid grid-cols-2 text-sm gap-5">
+            <div data-cal-link="house58/15" className="mt-5">
               <button
                 data-cal-link="house58/15"
                 aria-label="Open calendar to book a meeting"
-                className="flex h-11 bg-house-800 text-house-white transform cursor-pointer items-center text-sm font-bold rounded-xl py-5 px-10 drop-shadow-lg transition duration-300 border border-house-dim hover:bg-house-black hover:text-white uppercase"
+                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim"
               >
-                15 minutes
+                <span
+                  data-cal-link="house58/15"
+                  className="text-sm font-bold ml-5"
+                >
+                  15 MINUTES
+                </span>
+                <div
+                  data-cal-link="house58/15"
+                  className="absolute group right-[13%] hover:right-[13%] translate-x-1/2 top-1/2 -translate-y-1/2 h-2 w-2 group-hover:h-6 group-hover:w-6  overflow-hidden bg-house-green rounded-full ml-7 flex items-center justify-center transition-all duration-300"
+                >
+                  <span
+                    data-cal-link="house58/15"
+                    className="group-hover:visible invisible calender-icon"
+                  >
+                    <RxCalendar
+                      data-cal-link="house58/15"
+                      className="w-4 h-4"
+                    />
+                  </span>
+                </div>
               </button>
             </div>
             <div className="mt-5">
               <button
-                data-cal-link="house58/15"
+                data-cal-link="house58/30"
                 aria-label="Open calendar to book a meeting"
-                className="flex h-11 bg-house-800 text-house-white transform cursor-pointer items-center text-sm font-bold rounded-xl py-5 px-10 drop-shadow-lg transition duration-300 border border-house-dim hover:bg-house-black hover:text-white uppercase"
+                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim"
               >
-                30 minutes
+                <span
+                  data-cal-link="house58/30"
+                  className="text-sm font-bold ml-5"
+                >
+                  30 MINUTES
+                </span>
+                <div
+                  data-cal-link="house58/30"
+                  className="absolute group right-[13%] hover:right-[13%] translate-x-1/2 top-1/2 -translate-y-1/2 h-2 w-2 group-hover:h-6 group-hover:w-6  overflow-hidden bg-house-green rounded-full ml-7 flex items-center justify-center transition-all duration-300"
+                >
+                  <span
+                    data-cal-link="house58/30"
+                    className="group-hover:visible invisible calender-icon"
+                  >
+                    <RxCalendar
+                      data-cal-link="house58/30"
+                      className="w-4 h-4"
+                    />
+                  </span>
+                </div>
               </button>
             </div>
           </div>
