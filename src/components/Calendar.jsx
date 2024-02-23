@@ -5,7 +5,7 @@ import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { getCalApi } from "@calcom/embed-react";
-import { CiCalendar } from "react-icons/ci";
+import { RxCalendar } from "react-icons/rx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +74,7 @@ export default function Calendar() {
         aria-label="Open calendar to book a meeting"
         className="z-[999999999999] fixed md:bottom-4 bottom-4 md:right-6 right-4 flex h-11 bg-house-bluelight font-objektiv transform cursor-pointer items-center text-sm rounded-full py-5 px-6 drop-shadow-lg transition duration-300 hover:bg-house-black hover:text-white book-a-call"
       >
-        <CiCalendar className="mr-2 h-5 w-5" />
+        <RxCalendar className="mr-2 h-5 w-5" />
         Schedule a call
       </button>
     </div>
