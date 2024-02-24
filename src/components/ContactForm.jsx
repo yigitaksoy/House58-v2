@@ -12,11 +12,11 @@ function TextInput({ label, ...props }) {
         id={id}
         {...props}
         placeholder=" "
-        className="peer block w-full border border-house-dim rounded-xl bg-transparent px-6 pb-4 md:pt-5 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
+        className="peer block w-full border border-house-dim rounded-lg bg-transparent px-6 pb-4 pt-4 text-md text-house-black transition focus:outline-none"
       />
       <label
         htmlFor={id}
-        className="pointer-events-none absolute left-6 top-1/2 -mt-3 origin-left text-base/6 text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
+        className="pointer-events-none absolute left-6 top-1/2 -mt-3.5 origin-left text-md text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
       >
         {label}
       </label>
@@ -37,9 +37,9 @@ const ContactForm = () => {
   return (
     <FadeIn>
       <div className="w-full md:px-4">
-        <div className="mx-auto max-w-xl rounded-xl bg-white px-5 py-12 md:px-10 lg:mr-0 lg:px-8">
+        <div className="mx-auto max-w-lg rounded-xl bg-white px-5 py-12 md:px-10 lg:mr-0 lg:px-8">
           <h3 className="mb-8 text-3xl font-bold tracking-tight">
-            <span className="text-black">Contact Us</span>
+            <span className="text-black">Contact us</span>
           </h3>
           <form action="POST">
             <TextInput
@@ -68,7 +68,7 @@ const ContactForm = () => {
               isSearchable={false}
               placeholder="Services *"
               classNames={{
-                control: () => "p-3 text-md rounded-xl my-1.5",
+                control: () => "p-2.5 text-md rounded-md my-1.5",
               }}
               styles={{
                 input: (base) => ({
@@ -84,7 +84,7 @@ const ContactForm = () => {
                     : "1px solid black",
                   boxShadow: state.isFocused ? "0px 0px .5px #7dd3fc" : "none",
                   "&:hover": {
-                    border: "1px solid black",
+                    border: "1px solid #3f3f46",
                   },
                 }),
                 menu: (base) => ({
@@ -139,11 +139,11 @@ const ContactForm = () => {
                 id="message"
                 placeholder=" "
                 rows="3"
-                className="peer block w-full border border-house-dim rounded-xl bg-transparent px-6 pb-4 md:pt-6 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
+                className="peer block w-full border rounded-md border-house-dim bg-transparent px-6 pb-4 md:pt-6 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
               />
               <label
                 htmlFor="message"
-                className="pointer-events-none absolute left-6 top-1/2 -mt-9 origin-left text-base/6 text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-75 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
+                className="pointer-events-none absolute left-6 top-1/2 -mt-9 origin-left text-base/6 text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
               >
                 How can we help you? *
               </label>
