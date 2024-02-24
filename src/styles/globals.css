@@ -86,6 +86,12 @@ main {
   opacity: 0;
 }
 
+/*  Contact Page  */
+
+.calender-icon {
+  color: #100f0f !important;
+}
+
 /*  Footer  */
 
 footer {
