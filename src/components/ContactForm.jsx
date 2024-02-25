@@ -1,10 +1,11 @@
 "use client";
 
 import { useId } from "react";
-import { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import emailjs from "@emailjs/browser";
 
 import Select from "react-select";
 
@@ -32,6 +33,38 @@ function TextInput({ label, ...props }) {
 
 const ContactForm = () => {
   const main = useRef();
+  const form = useRef();
+  const [selectedService, setSelectedService] = useState(null);
+
+  // Update the hidden input whenever the selected option changes
+  useEffect(() => {
+    const hiddenInput = form.current.querySelector('input[name="service"]');
+    if (hiddenInput && selectedService) {
+      hiddenInput.value = selectedService.value;
+    }
+  }, [selectedService]);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_USER_ID,
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          // setFormSubmitted(true);
+        },
+        (error) => {
+          console.log(error.text);
+          // setFormError(true);
+        },
+      );
+  };
 
   useGSAP(
     () => {
@@ -64,12 +97,12 @@ const ContactForm = () => {
   );
 
   const options = [
-    { value: "web-design", label: "Web Design" },
-    { value: "web-development", label: "Web Development" },
-    { value: "ecommerce", label: "E-commerce" },
-    { value: "maintanence", label: "Maintanence" },
-    { value: "collaboration", label: "Collaboration" },
-    { value: "other", label: "Other" },
+    { value: "Web Design", label: "Web Design" },
+    { value: "Web Development", label: "Web Development" },
+    { value: "E-commerce", label: "E-commerce" },
+    { value: "Maintanence", label: "Maintanence" },
+    { value: "Collaboration", label: "Collaboration" },
+    { value: "Other", label: "Other" },
   ];
 
   return (
@@ -78,7 +111,7 @@ const ContactForm = () => {
         <h3 className="mb-8 text-3xl font-bold tracking-tight">
           <span className="text-black">Contact us</span>
         </h3>
-        <form action="POST">
+        <form ref={form} action="POST" onSubmit={sendEmail}>
           <TextInput
             id="name"
             label="Name *"
@@ -101,9 +134,11 @@ const ContactForm = () => {
             autoComplete="organization"
           />
           <Select
+            id="service"
             options={options}
             isSearchable={false}
             placeholder="Services *"
+            onChange={setSelectedService}
             classNames={{
               control: () => "p-2.5 text-md rounded-md my-1.5",
             }}
@@ -168,13 +203,15 @@ const ContactForm = () => {
             })}
             required
           />
+          <input type="hidden" name="service" />
           <div className="group relative z-0 transition-all focus-within:z-10 py-3">
             <textarea
-              required
-              type="textarea"
               id="message"
+              name="message"
+              type="textarea"
               placeholder=" "
               rows="3"
+              required
               className="peer block w-full border rounded-md border-house-dim bg-transparent px-6 pb-4 md:pt-6 pt-6 text-base/6 text-black ring-4 ring-transparent transition  focus:outline-none"
             />
             <label
