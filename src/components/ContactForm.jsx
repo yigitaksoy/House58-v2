@@ -78,13 +78,13 @@ const ContactForm = () => {
         gsap.fromTo(
           animate,
           {
-            y: 40,
+            y: 50,
             opacity: 0,
           },
           {
-            y: -1,
+            y: -15,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.7,
             delay: 0.8,
           },
         );
@@ -107,8 +107,8 @@ const ContactForm = () => {
   ];
 
   return (
-    <div ref={main} className="w-full md:px-4 ">
-      <div className="mx-auto max-w-lg rounded-xl bg-white px-5 py-12 md:px-10 lg:mr-0 lg:px-8 animate">
+    <div ref={main} className="w-full md:px-4">
+      <div className="mx-auto max-w-lg rounded-xl bg-white px-5 py-9 md:px-10 lg:mr-0 lg:px-8 animate">
         <h3 className="mb-8 text-3xl font-bold tracking-tight">
           <span className="text-black">Contact us</span>
         </h3>
@@ -205,7 +205,7 @@ const ContactForm = () => {
             required
           />
           <input type="hidden" name="service" />
-          <div className="group relative z-0 transition-all focus-within:z-10 py-3">
+          <div className="group relative z-0 transition-all focus-within:z-10 py-3 mb-5">
             <textarea
               id="message"
               name="message"
@@ -223,7 +223,7 @@ const ContactForm = () => {
             </label>
           </div>
           <button
-            className="flex group relative w-40 items-center justify-between rounded-lg py-4 bg-black border-2 border-house-black mt-12 font-bold leading-none text-house-whitewarm transition-transform duration-500 hover:bg-house-black"
+            className="flex group relative w-40 items-center justify-between rounded-lg py-4 bg-black border-2 border-house-black mt-2 mb-4 font-bold leading-none text-house-whitewarm transition-transform duration-500 hover:bg-house-black"
             type="submit"
           >
             <span className="font-bold ml-5 group-hover:text-house-whitewarm group-hover:-translate-x-1 transition-transform duration-500">
