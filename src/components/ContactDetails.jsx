@@ -23,7 +23,7 @@ export const ContactDetails = () => {
               <button
                 data-cal-link="house58/15"
                 aria-label="Open calendar to book a meeting"
-                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim"
+                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim hover:border-house-whitewarm"
               >
                 <span
                   data-cal-link="house58/15"
@@ -51,7 +51,7 @@ export const ContactDetails = () => {
               <button
                 data-cal-link="house58/30"
                 aria-label="Open calendar to book a meeting"
-                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim"
+                className="flex group relative md:w-44 w-40 items-center justify-between rounded-lg h-12 text-house-white hover:text-white transition duration-300 bg-house-800 border border-house-dim hover:border-house-whitewarm"
               >
                 <span
                   data-cal-link="house58/30"
