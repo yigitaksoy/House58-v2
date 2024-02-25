@@ -110,7 +110,7 @@ const Services = () => {
             <Link href="/services">
               <button
                 type="button"
-                className="border-[1.5px] border-house-black rounded-xl px-6 py-2 flex flex-row text-lg mt-5 font-heavy items-center gap-2 text-house-500 hover:bg-oxfordBlue hover:bg-house-black hover:text-white transition-all duration-300 ease-in-out self-start"
+                className="border-[1.5px] border-house-black rounded-lg px-6 py-2 flex flex-row text-lg mt-5 font-heavy items-center gap-2 text-house-500 hover:bg-house-black hover:text-white transition-all duration-300 ease-in-out self-start"
               >
                 Go to services
                 <GoArrowUpRight className="text-3xl" />
