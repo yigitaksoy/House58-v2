@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import emailjs from "@emailjs/browser";
+import { GoArrowUpRight } from "react-icons/go";
 
 import Select from "react-select";
 
@@ -222,10 +223,17 @@ const ContactForm = () => {
             </label>
           </div>
           <button
-            className="block w-full rounded-lg bg-black border-2 border-house-black px-8 py-5 mt-12 text-center font-bold leading-none text-white transition-all duration-300 hover:bg-house-green hover:text-black"
+            className="flex group relative w-40 items-center justify-between rounded-lg py-4 bg-black border-2 border-house-black mt-12 font-bold leading-none text-house-whitewarm transition-transform duration-500 hover:bg-house-black"
             type="submit"
           >
-            Send message
+            <span className="font-bold ml-5 group-hover:text-house-whitewarm group-hover:-translate-x-1 transition-transform duration-500">
+              Submit
+            </span>
+            <div className="absolute group right-[25%] translate-x-1/2 top-1/2 -translate-y-1/2 w-10 text-house-whitewarm overflow-hidden flex items-center justify-center">
+              <span className="group-hover:text-house-green group-hover:rotate-45 group-hover:translate-x-2 transition-transform duration-500">
+                <GoArrowUpRight className="text-2xl" />
+              </span>
+            </div>
           </button>
         </form>
       </div>
