@@ -257,7 +257,7 @@ const ContactForm = () => {
                   ref={arrowRef}
                   className="absolute group right-[25%] translate-x-1/2 top-1/2 -translate-y-1/2 w-10 text-house-whitewarm overflow-hidden flex items-center justify-center"
                 >
-                  <span className="group-hover:text-house-green group-hover:rotate-45 group-hover:translate-x-2 transition-transform duration-500">
+                  <span className="group-hover:text-house-green group-hover:rotate-45 group-hover:translate-x-2 group-hover:animate-pulse transition-transform duration-500">
                     <GoArrowUpRight className="text-2xl" />
                   </span>
                 </div>
