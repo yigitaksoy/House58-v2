@@ -8,7 +8,6 @@ import { FadeIn } from "@/components/FadeIn";
 import { SectionIntro } from "../components/SectionIntro";
 import { List, ListItem } from "@/components/List";
 import { StylizedImage } from "@/components/StylizedImage";
-import Magnetic from "@/components/Magnetic";
 import servicesImg from "@/images/services.png";
 import { GoArrowUpRight } from "react-icons/go";
 
@@ -106,17 +105,24 @@ const Services = () => {
           </List>
         </div>
         <div className="flex justify-end mt-16">
-          <Magnetic>
-            <Link href="/services">
-              <button
-                type="button"
-                className="border-[1.5px] border-house-black rounded-lg px-6 py-2 flex flex-row text-lg mt-5 font-heavy items-center gap-2 text-house-500 hover:bg-house-black hover:text-white transition-all duration-300 ease-in-out self-start"
-              >
+          <Link href="/services">
+            <button
+              type="button"
+              className="group border-[1.5px] border-house-black rounded-lg px-6 py-3 flex flex-row text-lg mt-5 font-heavy items-center gap-2  bg-house-black text-house-whitewarm transition duration-500"
+            >
+              <span className="group-hover:-translate-x-1 duration-500">
                 Go to services
-                <GoArrowUpRight className="text-3xl" />
-              </button>
-            </Link>
-          </Magnetic>
+              </span>
+              <div className="group">
+                <GoArrowUpRight
+                  className="text-3xl group-hover:rotate-45 group-hover:translate-x-2
+                group-hover:text-house-bluelight
+                group-hover:animate-pulse 
+                transition-transform duration-500"
+                />
+              </div>
+            </button>
+          </Link>
         </div>
       </Container>
     </section>
