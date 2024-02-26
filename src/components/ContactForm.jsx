@@ -7,6 +7,9 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import emailjs from "@emailjs/browser";
 import { GoArrowUpRight } from "react-icons/go";
+import { BiSolidError } from "react-icons/bi";
+import { FaCheckCircle } from "react-icons/fa";
+import { ImSpinner2 } from "react-icons/im";
 
 import Select from "react-select";
 
@@ -36,6 +39,16 @@ const ContactForm = () => {
   const main = useRef();
   const form = useRef();
   const [selectedService, setSelectedService] = useState(null);
+  const [isInitial, setIsInitial] = useState(true);
+  const [sending, setIsSending] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(true);
+  const [error, setError] = useState(false);
+
+  const submitTextRef = useRef();
+  const arrowRef = useRef();
+  const spinnerRef = useRef();
+  const successIconRef = useRef();
+  const errorIconRef = useRef();
 
   // Update the hidden input whenever the selected option changes
   useEffect(() => {
@@ -47,6 +60,9 @@ const ContactForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsInitial(false);
+    setIsSending(true);
+    setError(false);
 
     emailjs
       .sendForm(
@@ -58,11 +74,13 @@ const ContactForm = () => {
       .then(
         (result) => {
           console.log(result.text);
-          // setFormSubmitted(true);
+          setFormSubmitted(true);
+          setIsSending(false);
         },
         (error) => {
           console.log(error.text);
-          // setFormError(true);
+          setError(true);
+          setIsSending(false);
         },
       );
   };
@@ -225,15 +243,56 @@ const ContactForm = () => {
           <button
             className="flex group relative w-40 items-center justify-between rounded-lg py-4 bg-black border-2 border-house-black mt-2 mb-4 font-bold leading-none text-house-whitewarm transition-transform duration-500 hover:bg-house-black"
             type="submit"
+            disabled={formSubmitted}
           >
-            <span className="font-bold ml-5 group-hover:text-house-whitewarm group-hover:-translate-x-1 transition-transform duration-500">
-              Submit
-            </span>
-            <div className="absolute group right-[25%] translate-x-1/2 top-1/2 -translate-y-1/2 w-10 text-house-whitewarm overflow-hidden flex items-center justify-center">
-              <span className="group-hover:text-house-green group-hover:rotate-45 group-hover:translate-x-2 transition-transform duration-500">
-                <GoArrowUpRight className="text-2xl" />
-              </span>
-            </div>
+            {!sending && !formSubmitted && !error && (
+              <>
+                <span
+                  ref={submitTextRef}
+                  className="font-bold ml-5 group-hover:text-house-whitewarm group-hover:-translate-x-1 transition-transform duration-500"
+                >
+                  Submit
+                </span>
+                <div
+                  ref={arrowRef}
+                  className="absolute group right-[25%] translate-x-1/2 top-1/2 -translate-y-1/2 w-10 text-house-whitewarm overflow-hidden flex items-center justify-center"
+                >
+                  <span className="group-hover:text-house-green group-hover:rotate-45 group-hover:translate-x-2 transition-transform duration-500">
+                    <GoArrowUpRight className="text-2xl" />
+                  </span>
+                </div>
+              </>
+            )}
+            {sending && (
+              <div className="py-2">
+                <div
+                  ref={spinnerRef}
+                  className="absolute inset-0 flex justify-center items-center"
+                >
+                  <ImSpinner2 className="w-6 h-6 text-house-bluelight fill-house-bluelight animate-spin" />
+                </div>
+              </div>
+            )}
+            {formSubmitted && (
+              <div className="py-2">
+                <div
+                  ref={successIconRef}
+                  className="absolute inset-0 flex justify-center items-center"
+                >
+                  <FaCheckCircle className="w-6 h-6 text-house-black fill-house-green " />
+                </div>
+              </div>
+            )}
+            {error && !sending && !formSubmitted && (
+              <div className="py-2">
+                <div
+                  ref={errorIconRef}
+                  className="absolute inset-0 flex justify-center items-center"
+                >
+                  <BiSolidError className="w-6 h-6 text-yellow-400 " />
+                </div>
+              </div>
+            )}
           </button>
         </form>
       </div>
