@@ -41,7 +41,7 @@ const ContactForm = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isInitial, setIsInitial] = useState(true);
   const [sending, setIsSending] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(true);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
   const submitTextRef = useRef();
