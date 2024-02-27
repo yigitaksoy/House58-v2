@@ -8,8 +8,8 @@ import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import MobileNav from "./MobileNav";
-import Magnetic from "./Magnetic";
+import MobileNav from "@/components/sections/MobileNav";
+import Magnetic from "@/components/Magnetic";
 import Logo from "@/images/logos/house58.png";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);

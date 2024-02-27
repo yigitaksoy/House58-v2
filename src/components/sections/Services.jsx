@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
-import { SectionIntro } from "../components/SectionIntro";
+import { SectionIntro } from "@/components/SectionIntro";
 import { List, ListItem } from "@/components/List";
 import { StylizedImage } from "@/components/StylizedImage";
 import servicesImg from "@/images/services.png";

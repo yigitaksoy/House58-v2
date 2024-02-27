@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import AccordionItem from "./AccordionItem";
+import AccordionItem from "@/components/AccordionItem";
 
 import { faqList } from "@/data/faqList";
 

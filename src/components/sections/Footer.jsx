@@ -6,7 +6,7 @@ import Link from "next/link";
 import Magnetic from "@/components/Magnetic";
 import { SiLinkedin } from "react-icons/si";
 import { TbMailFast } from "react-icons/tb";
-import WeatherWidget from "./WeatherWidget";
+import WeatherWidget from "@/components/WeatherWidget";
 
 const Footer = () => {
   const router = useRouter();
