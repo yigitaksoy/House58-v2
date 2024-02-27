@@ -1,11 +1,11 @@
 import Head from "next/head";
 import GridPattern from "@/components/GridPattern";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import TechStack from "@/components/TechStack";
+import Hero from "@/components/sections/Hero";
+import Services from "@/components/sections/Services";
+import TechStack from "@/components/sections/TechStack";
 import Calendar from "@/components/Calendar";
-import OurProcess from "@/components/OurProcess";
-import Faq from "@/components/Faq";
+import OurProcess from "@/components/sections/OurProcess";
+import Faq from "@/components/sections/Faq";
 
 export default function Home() {
   return (

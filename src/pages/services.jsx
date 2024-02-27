@@ -2,10 +2,10 @@
 
 import Head from "next/head";
 import ServicesDetails from "@/components/ServicesDetails";
-import ServicesIntro from "@/components/ServicesIntro";
+import ServicesIntro from "@/components/sections/ServicesIntro";
 import Calendar from "@/components/Calendar";
-import OurProcess from "@/components/OurProcess";
-import Faq from "@/components/Faq";
+import OurProcess from "@/components/sections/OurProcess";
+import Faq from "@/components/sections/Faq";
 
 const services = () => {
   return (
