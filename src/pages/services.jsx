@@ -12,8 +12,8 @@ const services = () => {
     <>
       <Head>
         <title>
-          House 58 Digital | Creative Web Design, Web Development, Website
-          Maintenance & E-commerce Solutions in Amsterdam
+          Creative Web Design, Web Development, Website Maintenance & E-commerce
+          Solutions in Amsterdam | House 58 Digital
         </title>
         <meta
           name="description"
