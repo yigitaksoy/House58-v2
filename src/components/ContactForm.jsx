@@ -123,7 +123,7 @@ const ContactForm = () => {
   ];
 
   return (
-    <div className="w-full md:px-4">
+    <div ref={main} className="w-full md:px-4">
       <div className="mx-auto max-w-lg rounded-xl bg-white px-5 py-9 md:px-10 lg:mr-0 lg:px-8 animate">
         <h3 className="mb-8 text-3xl font-bold tracking-tight">
           <span className="text-black">Contact us</span>
