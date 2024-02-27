@@ -1,6 +1,5 @@
 "use client";
 
-import { useId } from "react";
 import { useEffect, useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
@@ -13,9 +12,7 @@ import { ImSpinner2 } from "react-icons/im";
 
 import Select from "react-select";
 
-function TextInput({ label, ...props }) {
-  let id = useId();
-
+function TextInput({ label, id, ...props }) {
   return (
     <div className="group relative z-0 transition-all focus-within:z-10 py-2">
       <input
@@ -152,6 +149,7 @@ const ContactForm = () => {
           />
           <Select
             id="service"
+            aria-label="services"
             options={options}
             isSearchable={false}
             placeholder="Services *"
