@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="flex flex-col pt-12 xl:flex-row xl:items-center xl:justify-between xl:pt-20">
               <div className="order-2 flex gap-4 xl:mt-0 items-center justify-center">
                 <Magnetic>
-                  <Link
+                  <a
                     href="https://www.linkedin.com/company/house-58-digital/"
                     aria-label="Follow us on LinkedIn"
                     target="_blank"
@@ -44,7 +44,7 @@ const Footer = () => {
                   >
                     <SiLinkedin className="text-house-bluelight" />
                     <span className="text-sm font-thin ml-1">Linkedin</span>
-                  </Link>
+                  </a>
                 </Magnetic>
                 <Magnetic>
                   <a
