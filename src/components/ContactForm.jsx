@@ -39,7 +39,6 @@ const ContactForm = () => {
   const main = useRef();
   const form = useRef();
   const [selectedService, setSelectedService] = useState(null);
-  const [isInitial, setIsInitial] = useState(true);
   const [sending, setIsSending] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -60,7 +59,6 @@ const ContactForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setIsInitial(false);
     setIsSending(true);
     setError(false);
 
@@ -125,7 +123,7 @@ const ContactForm = () => {
   ];
 
   return (
-    <div ref={main} className="w-full md:px-4">
+    <div className="w-full md:px-4">
       <div className="mx-auto max-w-lg rounded-xl bg-white px-5 py-9 md:px-10 lg:mr-0 lg:px-8 animate">
         <h3 className="mb-8 text-3xl font-bold tracking-tight">
           <span className="text-black">Contact us</span>
