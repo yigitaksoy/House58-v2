@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 import { Container } from "@/components/Container";
-import { FadeIn } from "./FadeIn";
+import { FadeIn } from "@/components/FadeIn";
 
 const texts = [
   [
