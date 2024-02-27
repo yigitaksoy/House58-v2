@@ -24,7 +24,7 @@ function TextInput({ label, id, ...props }) {
       />
       <label
         htmlFor={id}
-        className="pointer-events-none absolute left-6 top-1/2 -mt-3.5 origin-left text-md text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
+        className="pointer-events-none absolute left-6 top-1/2 -mt-3.5 origin-left text-md text-neutral-600 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
       >
         {label}
       </label>
@@ -215,6 +215,10 @@ const ContactForm = () => {
             theme={(theme) => ({
               ...theme,
               borderRadius: "5",
+              colors: {
+                ...theme.colors,
+                neutral50: "#525252",
+              },
             })}
             required
           />
@@ -231,7 +235,7 @@ const ContactForm = () => {
             />
             <label
               htmlFor="message"
-              className="pointer-events-none absolute left-6 top-1/2 -mt-9 origin-left text-base/6 text-neutral-500 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
+              className="pointer-events-none absolute left-6 top-1/2 -mt-9 origin-left text-base/6 text-neutral-600 transition-all duration-300 peer-focus:-translate-y-4 peer-focus:scale-50 peer-focus:font-semibold peer-focus:text-house-bluelight peer-[:not(:placeholder-shown)]:-translate-y-4 peer-[:not(:placeholder-shown)]:scale-50 peer-[:not(:placeholder-shown)]:font-heavy peer-[:not(:placeholder-shown)]:text-house-black"
             >
               How can we help you? *
             </label>
