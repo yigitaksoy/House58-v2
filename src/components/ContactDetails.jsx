@@ -80,37 +80,41 @@ export const ContactDetails = () => {
       </Border>
 
       <Border invert className="mt-16 pt-16">
-        <div className="mt-6 grid grid-cols-2 gap-8 text-sm">
-          <div>
+        <div className="mt-6 grid grid-cols-2 gap-8">
+          <div className="w-20">
             <h2 className="font-display text-base font-semibold text-house-bluelight">
               Email us
             </h2>
-            <div className="mt-6 text-sm">
+            <div className="mt-6 text-md">
               <a
                 href="mailto:hello@house58.nl?subject=Lets%20Start%20a%20Project"
                 aria-label="Email us"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-house-whitewarm"
+                className="group flex items-center text-house-whitewarm"
               >
-                hello@house58.nl
+                <span className="bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] duration-300">
+                  hello@house58.nl
+                </span>
               </a>
             </div>
           </div>
-          <div>
+          <div className="w-24">
             <h2 className="font-display text-base font-semibold text-house-bluelight">
               Follow us
             </h2>
-            <div className="mt-6 text-sm">
+            <div className="mt-6 text-md">
               <a
                 href="https://www.linkedin.com/company/house-58-digital/"
                 aria-label="Follow us on LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-house-whitewarm"
+                className="group flex items-center text-house-whitewarm"
               >
                 <SiLinkedin className="text-house-bluelight" />
-                <span className="text-sm ml-1">Linkedin</span>
+                <span className="text-md ml-1 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px] duration-300">
+                  Linkedin
+                </span>
               </a>
             </div>
           </div>
