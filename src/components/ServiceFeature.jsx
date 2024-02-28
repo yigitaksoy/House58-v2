@@ -59,10 +59,10 @@ const ServiceFeature = ({ title, children, sectionId, alt, image }) => {
           <div className="mt-12 lg:mt-0 lg:w-[37rem] lg:flex-none lg:group-even/section:order-first">
             <div>
               <div
-                className="font-display text-base font-semibold italic before:text-neutral-300 before:content-['/_'] after:text-white after:content-[counter(section,decimal-leading-zero)]"
+                className="font-display text-base font-semibold italic before:text-house-500 before:content-['/_'] after:text-house-500 after:content-[counter(section,decimal-leading-zero)]"
                 aria-hidden="true"
               />
-              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-house-500 sm:text-4xl">
                 {title}
               </h2>
               <div className="mt-6">{children}</div>

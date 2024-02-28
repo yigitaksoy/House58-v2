@@ -67,7 +67,7 @@ const ServicesDetails = () => {
     const parts = text.split(/(House 58)/);
     return parts.map((part, index) =>
       part === "House 58" ? (
-        <span key={index} className="font-heavy text-white">
+        <span key={index} className="font-heavy text-house-500">
           {part}
         </span>
       ) : (
@@ -80,10 +80,10 @@ const ServicesDetails = () => {
     <section
       id="services-details"
       ref={sectionRef}
-      className="pb-20 space-y-24 [counter-reset:section] mt-24 sm:space-y-32 lg:mt-14 lg:space-y-40 bg-house-black"
+      className="pb-20 space-y-24 [counter-reset:section] mt-24 sm:space-y-32 lg:mt-14 lg:space-y-40 bg-white"
     >
       <div className="pt-10 md:pt-5 pb-10">
-        <h1 className="text-center text-white md:text-8xl text-6xl font-heavy animate-title">
+        <h1 className="text-center text-house-500 md:text-8xl text-6xl font-heavy animate-title">
           SERVICES
         </h1>
       </div>
@@ -96,7 +96,7 @@ const ServicesDetails = () => {
           image={{ src: service.image }}
           alt={service.alt}
         >
-          <div className="space-y-6 text-base text-neutral-300">
+          <div className="space-y-6 text-base text-house-500">
             <p>{renderParagraph(service.paragraph1)}</p>
             <p>{renderParagraph(service.paragraph2)}</p>
             <p>{renderParagraph(service.paragraph3)}</p>
