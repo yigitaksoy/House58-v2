@@ -4,34 +4,13 @@ import { useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import InfiniteMarquee from "@/components/InfiniteMarquee";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
-
-const texts = [
-  [
-    "Web Design",
-    "E-commerce",
-    "Web Development",
-    "Wordpress",
-    "Maintanence",
-    "Shopify",
-    "Backend",
-    "Branding",
-  ],
-  [
-    "UX/UI Design",
-    "Optimization",
-    "Redesigns",
-    "Functionality",
-    "Landing Pages",
-    "Applications",
-  ],
-];
 
 const ServicesIntro = () => {
   const main = useRef();
   const h1Ref = useRef();
+  const p1Ref = useRef();
 
   useGSAP(
     () => {
@@ -44,7 +23,7 @@ const ServicesIntro = () => {
         const x = ((clientX - left - width / 2) / width) * 8;
         const y = ((clientY - top - height / 2) / height) * 15;
 
-        gsap.to([h1Ref.current], {
+        gsap.to([h1Ref.current, p1Ref.current], {
           x,
           y,
           duration: 0.5,
@@ -119,23 +98,22 @@ const ServicesIntro = () => {
   );
 
   return (
-    <section id="services-intro" className="h-auto" ref={main}>
+    <section id="services-intro" className="h-auto mb-32" ref={main}>
       <Container className="mt-36 sm:mt-32 md:mt-60">
         <FadeIn className="max-w-2xl pt-14">
           <h1
             ref={h1Ref}
-            className="text-4xl font-heavy tracking-tight text-white [text-wrap:balance] sm:text-6xl md:leading-[4.5rem] animate-title"
+            className="font-display text-4xl font-heavy  text-white [text-wrap:balance] sm:text-6xl animate-title"
           >
-            Designing standout solutions using sound strategic thinking.
+            Elevating ideas through strategic creativity.
           </h1>
+          <div className="max-w-2xl">
+            <p ref={p1Ref} className="mt-6 text-xl text-house-white animate">
+              Blending innovative design with reliable technology, we create
+              intuitive and engaging digital experiences.
+            </p>
+          </div>
         </FadeIn>
-        <div className="mt-32">
-          <InfiniteMarquee
-            className="text-white md:text-6xl text-3xl md:py-5 py-3 font-heavy animate"
-            texts={texts}
-            hollow
-          />
-        </div>
       </Container>
     </section>
   );
