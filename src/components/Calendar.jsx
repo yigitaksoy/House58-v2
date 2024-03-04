@@ -72,7 +72,7 @@ export default function Calendar() {
         ref={buttonRef}
         data-cal-link="house58/30"
         aria-label="Open calendar to book a meeting"
-        className="z-[999999999999] fixed md:bottom-4 bottom-4 md:right-6 right-4 flex h-11 bg-house-bluelight font-objektiv transform cursor-pointer items-center text-sm rounded-full py-5 px-6 drop-shadow-lg transition duration-300 hover:bg-house-black hover:text-white book-a-call"
+        className="z-[999999999999] fixed md:bottom-4 bottom-4 md:right-6 right-4 flex h-11 bg-house-bluelight font-objektiv transform cursor-pointer items-center text-sm rounded-full py-5 px-6 drop-shadow-lg transition duration-300 hover:bg-house-black hover:text-white book-a-call border border-house-bluelight"
       >
         <RxCalendar className="mr-2 h-5 w-5" />
         Schedule a call
