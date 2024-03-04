@@ -10,6 +10,7 @@ import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import Logo from "@/images/logos/house58.png";
 import { SiLinkedin } from "react-icons/si";
 import { TbMailFast } from "react-icons/tb";
+import { RxCalendar } from "react-icons/rx";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -221,6 +222,14 @@ const MobileNav = () => {
                   <span className="ml-1">Email</span>
                 </Link>
               </div>
+              <button
+                data-cal-link="house58/15"
+                aria-label="Open calendar to book a meeting"
+                className="z-[999999999999] flex h-11 bg-house-bluelight font-objektiv transform items-center text-sm rounded-xl py-5 px-6 text-house-black mt-10"
+              >
+                <RxCalendar className="mr-2 h-5 w-5" />
+                Schedule a call
+              </button>
             </div>
             <div className="px-4"></div>
           </div>
