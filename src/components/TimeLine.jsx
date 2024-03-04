@@ -190,8 +190,8 @@ const TimeLine = () => {
               Touch-ups
             </h2>
             <p className="text-house-dim transition duration-1000">
-              Testing, proofreading, final edits to make sure that your project
-              looks perfect.
+              Testing, optimization, and final tweaks ensure your project is
+              both high-performing and visually perfect.
             </p>
           </div>
         </div>
@@ -204,9 +204,9 @@ const TimeLine = () => {
               Delivery
             </h2>
             <p className="text-house-dim transition duration-1000">
-              Upon approval of the final deliverables, we&apos;ll issue the
-              closing invoice. With just a few clicks, we&apos;ll be poised to
-              send you all the completed assets.
+              Upon final approval, we launch your project and issue the closing
+              invoice, setting everything in motion for you to hit the ground
+              running.
             </p>
           </div>
         </div>
