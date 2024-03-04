@@ -18,20 +18,26 @@ export default function Home() {
           name="description"
           content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
         />
-        <link
-          rel="preconnect"
-          href="https://use.typekit.net"
-          crossOrigin="anonymous"
+        <link rel="canonical" href="https://house58.nl" />
+        <meta
+          property="og:image:alt"
+          content="House 58 Digital - Your Partner in Innovative Digital Solutions"
         />
-
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:title"
+          content="House 58 Digital - Innovative Digital Solutions in Amsterdam"
+        />
+        <meta
+          property="og:description"
+          content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
+        />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "http://schema.org",
             "@type": "WebPage",
             name: "House 58 Digital",
             description:
-              "Leading provider of innovative digital solutions, including web design, development, and digital marketing services.",
+              "Leading provider of innovative digital solutions, including web design, development, and e-commerce.",
           })}
         </script>
       </Head>

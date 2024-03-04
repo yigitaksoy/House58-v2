@@ -19,7 +19,7 @@ const services = () => {
           name="description"
           content="Explore House 58 Digital's specialized services in Web Design, Web Development, E-commerce, and Website Maintenance. Discover custom solutions for web design, online retail platforms, and ongoing site support."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://house58.nl/services" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "http://schema.org",

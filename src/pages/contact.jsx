@@ -12,7 +12,6 @@ const contact = () => {
           name="description"
           content="Get in touch with House 58 Digital for your Web Design, Web Development, E-commerce, and Website Maintenance needs. Contact us today to discuss your project or inquiry."
         />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://house58.nl/contact" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -62,7 +61,6 @@ const contact = () => {
           content="Reach out to House 58 Digital for expert Web Design, Development, E-commerce, and Maintenance services. Contact us to start your project."
         />
         <meta property="og:url" content="https://house58.nl/contact" />
-        <meta property="og:type" content="website" />
       </Head>
 
       <section className="py-12 md:py-20 mt-40">
