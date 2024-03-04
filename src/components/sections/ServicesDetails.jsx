@@ -92,7 +92,7 @@ const ServicesDetails = () => {
     <section
       id="services-details"
       ref={sectionRef}
-      className="pb-20 space-y-24 [counter-reset:section] mt-24 sm:space-y-32 lg:mt-14 lg:space-y-40 bg-white"
+      className="pb-20 space-y-24 [counter-reset:section] mt-24 sm:space-y-32 lg:mt-14 lg:space-y-40"
     >
       <div className="pt-40 pb-10">
         <h1 className="text-center text-house-500 md:text-8xl text-6xl font-heavy animate-title">
