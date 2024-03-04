@@ -1,7 +1,7 @@
 "use client";
 
 import Head from "next/head";
-import ServicesDetails from "@/components/ServicesDetails";
+import ServicesDetails from "@/components/sections/ServicesDetails";
 import ServicesIntro from "@/components/sections/ServicesIntro";
 import Calendar from "@/components/Calendar";
 import OurProcess from "@/components/sections/OurProcess";
