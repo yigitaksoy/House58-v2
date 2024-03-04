@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
-import StackIntro from "@/components/StackIntro";
 import logoAws from "@/images/logos/aws.svg";
 import logoGcp from "@/images/logos/gcp.svg";
 import logoReact from "@/images/logos/reactjs.svg";
@@ -68,39 +67,50 @@ export default function TechStack() {
     <section
       ref={stackRef}
       id="tech-stack"
-      className="relative isolate bg-house-whitewarm py-16 sm:py-28 md:py-32"
+      className="relative isolate bg-white md:py-32"
     >
-      <FadeIn>
-        <StackIntro title="Our Tech Stack" hollow>
-          <p>
-            We&apos;ll carefully pair the right frameworks and platforms with
-            your business objectives.
-          </p>
-        </StackIntro>
-      </FadeIn>
-      <Container>
-        <FadeInStagger faster>
-          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-          <ul
-            role="list"
-            aria-label="Our Technology Stack"
-            className="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 lg:grid-cols-5"
-          >
-            {techStack.map((tech) => (
-              <li key={tech.alt}>
-                <FadeIn>
-                  <Image
-                    src={tech.img}
-                    alt={tech.alt}
-                    style={{ width: `${tech.width}px` }}
-                    className="w-full h-auto grayscale hover:grayscale-0"
-                  />
-                </FadeIn>
-              </li>
-            ))}
-          </ul>
-        </FadeInStagger>
-      </Container>
+      <div className="lg:rounded-3xl bg-house-black px-5 lg:px-8 py-20 lg:max-w-7xl mx-auto mt-10">
+        <FadeIn>
+          <div className="mx-auto max-w-2xl lg:max-w-none">
+            <div className="max-w-2xl">
+              <h2>
+                <span className="mb-6 pt-7 block font-display font-heavy text-4xl text-house-bluelight">
+                  Our Tech Stack
+                </span>
+              </h2>
+              <div className="mt-6 text-xl">
+                <p className="text-white font-bold">
+                  We&apos;ll carefully pair the right frameworks and platforms
+                  with your business objectives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+        <Container>
+          <FadeInStagger faster>
+            {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+            <ul
+              role="list"
+              aria-label="Our Technology Stack"
+              className="mt-10 grid grid-cols-2 gap-x-10 gap-y-10 lg:grid-cols-5"
+            >
+              {techStack.map((tech) => (
+                <li key={tech.alt}>
+                  <FadeIn>
+                    <Image
+                      src={tech.img}
+                      alt={tech.alt}
+                      style={{ width: `${tech.width}px` }}
+                      className="w-full h-auto opacity-75"
+                    />
+                  </FadeIn>
+                </li>
+              ))}
+            </ul>
+          </FadeInStagger>
+        </Container>
+      </div>
     </section>
   );
 }
