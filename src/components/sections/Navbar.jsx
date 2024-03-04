@@ -133,17 +133,6 @@ const Navbar = () => {
         <div className="flex gap-6 lg:gap-20 text-md">
           <Magnetic>
             <Link
-              href="/about"
-              onClick={(e) => handleRouteClick(e, "/about")}
-              className="group"
-            >
-              <span className="text-white duration-300 bg-bottom bg-gradient-to-r from-house-bluelight to-house-bluelight bg-[length:0%_2px] bg-no-repeat transform transition-all ease-out group-hover:bg-[length:100%_1.5px]">
-                About
-              </span>
-            </Link>
-          </Magnetic>
-          <Magnetic>
-            <Link
               href="/services"
               onClick={(e) => handleRouteClick(e, "/services")}
               className="group"
