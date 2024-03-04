@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 const techStack = [
   { img: logoAws, alt: "AWS logo", width: 110 },
   { img: logoGcp, alt: "Google Cloud Platform (GCP) logo", width: 110 },
-  { img: logoNext, alt: "React JavaScript library logo", width: 80 },
+  { img: logoNext, alt: "Next.js React framework logo", width: 80 },
   { img: logoNodejs, alt: "Node.js JavaScript runtime logo", width: 80 },
   { img: logoDjango, alt: "Django web framework logo", width: 100 },
   { img: logoShopify, alt: "Shopify e-commerce platform logo", width: 110 },
