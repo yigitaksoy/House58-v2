@@ -75,20 +75,22 @@ const Services = () => {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
+            <ListItem title="Web Design">
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               Your digital handshake starts with your website—it's where first
               impressions are formed. At{" "}
               <span className="text-house-500 font-heavy">House 58</span>, we
-              create custom web solutions using latest tools and frameworks that
-              resonate with your audience, ensuring a cohesive journey from
-              UI/UX design to full-scale development and support.
+              specialize in creating visually stunning and user-friendly web
+              designs, leveraging the latest in UI/UX principles to ensure your
+              site resonates with your audience and promotes engagement.
             </ListItem>
-            <ListItem title="Full Stack Development">
-              A dynamic online presence is a cornerstone for business growth.
-              We&apos;re dedicated to building you a modern web solutions not
-              only tailored to your needs but also sets the stage for your
-              future expansion
+            <ListItem title="Web Development">
+              A dynamic online presence is a cornerstone for business growth. At{" "}
+              <span className="text-house-500 font-heavy">House 58</span>,
+              we&apos;`re dedicated to developing modern, scalable web solutions
+              tailored to your needs, encompassing everything from front-end to
+              back-end development, ensuring your platform is ready for future
+              expansion.
             </ListItem>
             <ListItem title="E-commerce">
               Step into online retail with a custom-designed e-commerce site on
