@@ -7,7 +7,7 @@ import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import logoAws from "@/images/logos/aws.svg";
 import logoGcp from "@/images/logos/gcp.svg";
-import logoReact from "@/images/logos/reactjs.svg";
+import logoNext from "@/images/logos/nextjs.svg";
 import logoNodejs from "@/images/logos/nodejs.svg";
 import logoDjango from "@/images/logos/django.svg";
 import logoShopify from "@/images/logos/shopify.svg";
@@ -21,7 +21,7 @@ gsap.registerPlugin(ScrollTrigger);
 const techStack = [
   { img: logoAws, alt: "AWS logo", width: 110 },
   { img: logoGcp, alt: "Google Cloud Platform (GCP) logo", width: 110 },
-  { img: logoReact, alt: "React JavaScript library logo", width: 110 },
+  { img: logoNext, alt: "React JavaScript library logo", width: 80 },
   { img: logoNodejs, alt: "Node.js JavaScript runtime logo", width: 80 },
   { img: logoDjango, alt: "Django web framework logo", width: 100 },
   { img: logoShopify, alt: "Shopify e-commerce platform logo", width: 110 },
@@ -102,7 +102,7 @@ export default function TechStack() {
                       src={tech.img}
                       alt={tech.alt}
                       style={{ width: `${tech.width}px` }}
-                      className="w-full h-auto opacity-75"
+                      className="w-full h-auto opacity-90"
                     />
                   </FadeIn>
                 </li>
