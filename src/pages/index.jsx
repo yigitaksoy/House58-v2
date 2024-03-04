@@ -11,7 +11,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>House 58 Digital - Innovative Digital Solutions</title>
+        <title>
+          House 58 Digital - Innovative Digital Solutions in Amsterdam
+        </title>
         <meta
           name="description"
           content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
