@@ -155,14 +155,14 @@ const MobileNav = () => {
                 href="/about"
                 aria-label="About"
                 className="group flex items-center justify-between p-3 cursor-pointer"
-                onClick={(e) => handleRouteClick(e, "/about")}
+                onClick={(e) => handleRouteClick(e, "/")}
               >
                 <p
                   className={`group-hover:translate-x-[20px] transition font-heavy ${
                     open ? "" : "translate-x-40px] duration-300 "
                   }`}
                 >
-                  About
+                  Home
                 </p>
               </Link>
               <Link
