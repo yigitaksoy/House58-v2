@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import ServiceFeature from "./ServiceFeature";
+import ServiceFeature from "@/components/ServiceFeature";
 import { TagList, TagListItem } from "@/components/TagList";
 import { data as services } from "@/data/services";
 
