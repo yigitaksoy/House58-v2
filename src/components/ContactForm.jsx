@@ -5,9 +5,9 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import emailjs from "@emailjs/browser";
-import { SelectInput } from "@/components/SelectInput";
-import { TextInput } from "@/components/TextInput";
-import SubmitButton from "@/components/SubmitButton";
+import { SelectInput } from "@/components/ui/SelectInput";
+import { TextInput } from "@/components/ui/TextInput";
+import SubmitButton from "@/components/ui/SubmitButton";
 
 const ContactForm = () => {
   const main = useRef();

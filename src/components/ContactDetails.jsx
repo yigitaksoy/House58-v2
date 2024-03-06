@@ -1,5 +1,5 @@
-import { FadeIn } from "@/components/FadeIn";
-import { Border } from "@/components/Border";
+import { FadeIn } from "@/components/shared/FadeIn";
+import { Border } from "@/components/layout/Border";
 import { SiLinkedin } from "react-icons/si";
 import { RxCalendar } from "react-icons/rx";
 

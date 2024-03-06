@@ -1,6 +1,6 @@
 import Head from "next/head";
 import ContactForm from "@/components/ContactForm";
-import { FadeIn } from "@/components/FadeIn";
+import { FadeIn } from "@/components/shared/FadeIn";
 import { ContactDetails } from "@/components/ContactDetails";
 
 const contact = () => {

@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import Head from "next/head";
 
 function App({ Component, pageProps }) {

@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
+import { Container } from "@/components/layout/Container";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 const Hero = () => {
   const main = useRef();

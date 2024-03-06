@@ -3,7 +3,7 @@
 import { useRouter } from "next/router";
 import { gsap } from "gsap/dist/gsap";
 import Link from "next/link";
-import Magnetic from "@/components/Magnetic";
+import Magnetic from "@/components/shared/Magnetic";
 import { SiLinkedin } from "react-icons/si";
 import { TbMailFast } from "react-icons/tb";
 import WeatherWidget from "@/components/WeatherWidget";

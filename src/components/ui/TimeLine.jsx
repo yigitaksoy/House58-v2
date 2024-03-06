@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Container } from "@/components/Container";
+import { Container } from "@/components/layout/Container";
 
 const TimeLine = () => {
   const timelineRef = useRef(null);

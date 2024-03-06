@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { Border } from "@/components/Border";
-import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import { Border } from "@/components/layout/Border";
+import { FadeIn, FadeInStagger } from "@/components/shared/FadeIn";
 
 export function List({ className, children }) {
   return (

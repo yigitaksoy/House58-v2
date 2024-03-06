@@ -3,7 +3,7 @@
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { StylizedImage } from "@/components/StylizedImage";
+import { StylizedImage } from "@/components/ui/StylizedImage";
 
 gsap.registerPlugin(ScrollTrigger);
 

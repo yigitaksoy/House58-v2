@@ -1,5 +1,5 @@
 import Head from "next/head";
-import GridPattern from "@/components/GridPattern";
+import GridPattern from "@/components/ui/GridPattern";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import TechStack from "@/components/sections/TechStack";

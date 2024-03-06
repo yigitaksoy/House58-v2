@@ -3,11 +3,11 @@ import Link from "next/link";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Container } from "@/components/Container";
-import { FadeIn } from "@/components/FadeIn";
-import { SectionIntro } from "@/components/SectionIntro";
-import { List, ListItem } from "@/components/List";
-import { StylizedImage } from "@/components/StylizedImage";
+import { Container } from "@/components/layout/Container";
+import { FadeIn } from "@/components/shared/FadeIn";
+import { SectionIntro } from "@/components/layout/SectionIntro";
+import { List, ListItem } from "@/components/ui/List";
+import { StylizedImage } from "@/components/ui/StylizedImage";
 import servicesImg from "@/images/services.png";
 import { GoArrowUpRight } from "react-icons/go";
 

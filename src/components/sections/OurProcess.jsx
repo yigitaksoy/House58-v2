@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import TimeLine from "@/components/TimeLine";
+import TimeLine from "@/components/ui/TimeLine";
 
 const OurProcess = ({ className }) => {
   const sectionRef = useRef(null);
