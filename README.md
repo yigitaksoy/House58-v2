@@ -1,4 +1,4 @@
-![House58](https://github.com/yigitaksoy/House58-v2/blob/master/public/house58-readme.png)
+![House58](public/house58-readme.png)
 
 ---
 
