@@ -36,6 +36,7 @@ function App({ Component, pageProps }) {
           href="https://use.typekit.net"
           crossOrigin="anonymous"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta property="og:image" content="/house58.png" />
         <meta property="og:type" content="website" />
         <meta name="publisher" content="https://house58.nl/" />
