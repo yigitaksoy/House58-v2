@@ -14,32 +14,6 @@ export default function Home() {
         <title>
           House 58 Digital - Innovative Digital Solutions in Amsterdam
         </title>
-        <meta
-          name="description"
-          content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
-        />
-        <link rel="canonical" href="https://house58.nl" />
-        <meta
-          property="og:image:alt"
-          content="House 58 Digital - Your Partner in Innovative Digital Solutions"
-        />
-        <meta
-          property="og:title"
-          content="House 58 Digital - Innovative Digital Solutions in Amsterdam"
-        />
-        <meta
-          property="og:description"
-          content="House 58 Digital provides innovative digital solutions, specializing in web design, development, and e-commerce. Located in the heart of Amsterdam."
-        />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            name: "House 58 Digital",
-            description:
-              "Leading provider of innovative digital solutions, including web design, development, and e-commerce.",
-          })}
-        </script>
       </Head>
       <GridPattern
         className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-house-bluelight [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
