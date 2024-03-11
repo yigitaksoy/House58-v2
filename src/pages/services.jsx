@@ -15,32 +15,6 @@ const services = () => {
           Creative Web Design, Web Development, Website Maintenance & E-commerce
           Solutions in Amsterdam | House 58 Digital
         </title>
-        <meta
-          name="description"
-          content="Explore House 58 Digital's specialized services in Web Design, Web Development, E-commerce, and Website Maintenance. Discover custom solutions for web design, online retail platforms, and ongoing site support."
-        />
-        <link rel="canonical" href="https://house58.nl/services" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://schema.org",
-            "@type": "ProfessionalService",
-            name: "House 58 Digital Services",
-            description:
-              "Offering specialized Web Design, Web Development, E-commerce solutions, and comprehensive Website Maintenance services. Tailored digital solutions for businesses of all sizes.",
-            serviceType: [
-              "Web Design",
-              "Web Development",
-              "E-commerce Solutions",
-              "Website Maintenance",
-            ],
-            areaServed: ["Worldwide"],
-            provider: {
-              "@type": "Organization",
-              name: "House 58 Digital",
-              url: "https://house58.vercel.app/services",
-            },
-          })}
-        </script>
       </Head>
       <ServicesIntro />
       <ServicesDetails />
