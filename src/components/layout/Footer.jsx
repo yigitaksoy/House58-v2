@@ -99,7 +99,7 @@ const Footer = () => {
               </div>
               <div className="order-2 mt-14 inline-flex gap-4 xl:mt-0 items-center justify-center">
                 <p className="order-2 inline-flex text-sm font-thin text-house-whitewarm text-center">
-                  © 2023{" "}
+                  © {new Date().getFullYear()}{" "}
                   <span className="pl-1 font-heavy">House 58 Digital</span>.
                 </p>
               </div>
